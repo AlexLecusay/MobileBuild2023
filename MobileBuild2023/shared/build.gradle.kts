@@ -47,7 +47,7 @@ kotlin {
 }
 
 android {
-    namespace = "init.build.mobilebuild2023"
+    namespace = "init.build.roaryminders"
     compileSdk = 32
     defaultConfig {
         minSdk = 21

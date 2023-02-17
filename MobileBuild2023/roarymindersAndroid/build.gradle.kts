@@ -4,10 +4,10 @@ plugins {
 }
 
 android {
-    namespace = "init.build.mobilebuild2023.android"
+    namespace = "init.build.roaryminders.android"
     compileSdk = 32
     defaultConfig {
-        applicationId = "init.build.mobilebuild2023.android"
+        applicationId = "init.build.roaryminders.android"
         minSdk = 21
         targetSdk = 32
         versionCode = 1

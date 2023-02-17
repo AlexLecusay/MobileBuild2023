@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "MobileBuild2023"
-include(":MobileBuild2023Android")
+rootProject.name = "roaryminders"
+include(":roarymindersAndroid")
 include(":shared")
