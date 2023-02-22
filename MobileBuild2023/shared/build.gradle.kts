@@ -4,7 +4,13 @@ plugins {
 }
 
 kotlin {
-    android()
+    android {
+        compilations.all {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
+        }
+    }
     
     listOf(
         iosX64(),
@@ -24,7 +30,7 @@ kotlin {
             }
         }
         val androidMain by getting
-        val androidTest by getting
+        val androidUnitTest by getting
         val iosX64Main by getting
         val iosArm64Main by getting
         val iosSimulatorArm64Main by getting
@@ -47,10 +53,10 @@ kotlin {
 }
 
 android {
-    namespace = "init.build.roaryminders"
-    compileSdk = 32
+    namespace = "com.example.roaryminder"
+    compileSdk = 33
     defaultConfig {
-        minSdk = 21
-        targetSdk = 32
+        minSdk = 24
+        targetSdk = 33
     }
 }

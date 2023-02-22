@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "roaryminders"
-include(":roarymindersAndroid")
+rootProject.name = "RoaryMinder"
+include(":roaryMinderAndroid")
 include(":shared")
