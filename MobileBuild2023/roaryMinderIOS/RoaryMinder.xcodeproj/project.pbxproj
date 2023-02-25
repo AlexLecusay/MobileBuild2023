@@ -13,6 +13,9 @@
 		460F599F29A5C37300E11E59 /* ClassComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 460F599E29A5C37300E11E59 /* ClassComponent.swift */; };
 		46E37DDA29A9C1E400D65C10 /* ClassListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DD929A9C1E400D65C10 /* ClassListComponent.swift */; };
 		46E37DDC29A9C83500D65C10 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDB29A9C83500D65C10 /* Class.swift */; };
+		46E37DDE29A9CD5B00D65C10 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */; };
+		46E37DE029A9CE9900D65C10 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDF29A9CE9900D65C10 /* SearchBarView.swift */; };
+		46E37DE229A9CEC500D65C10 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DE129A9CEC500D65C10 /* SideMenuView.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -36,6 +39,9 @@
 		460F599E29A5C37300E11E59 /* ClassComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassComponent.swift; sourceTree = "<group>"; };
 		46E37DD929A9C1E400D65C10 /* ClassListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListComponent.swift; sourceTree = "<group>"; };
 		46E37DDB29A9C83500D65C10 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
+		46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
+		46E37DDF29A9CE9900D65C10 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		46E37DE129A9CEC500D65C10 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* RoaryMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoaryMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -84,6 +90,9 @@
 				7555FF82242A565900829871 /* ContentView.swift */,
 				460F599E29A5C37300E11E59 /* ClassComponent.swift */,
 				46E37DD929A9C1E400D65C10 /* ClassListComponent.swift */,
+				46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */,
+				46E37DE129A9CEC500D65C10 /* SideMenuView.swift */,
+				46E37DDF29A9CE9900D65C10 /* SearchBarView.swift */,
 				46E37DDB29A9C83500D65C10 /* Class.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
@@ -192,7 +201,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				46E37DDA29A9C1E400D65C10 /* ClassListComponent.swift in Sources */,
+				46E37DDE29A9CD5B00D65C10 /* LandingPageView.swift in Sources */,
+				46E37DE229A9CEC500D65C10 /* SideMenuView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				46E37DE029A9CE9900D65C10 /* SearchBarView.swift in Sources */,
 				460F599F29A5C37300E11E59 /* ClassComponent.swift in Sources */,
 				46E37DDC29A9C83500D65C10 /* Class.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,

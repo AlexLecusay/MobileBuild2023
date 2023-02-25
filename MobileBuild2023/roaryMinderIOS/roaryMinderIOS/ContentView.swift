@@ -15,7 +15,7 @@ struct ContentView: View {
             Class(title: "Computer Science 101", description: "Programming basics and problem solving.", isHomePage: true),
             Class(title: "Music 101", description: "Fundamentals of music theory and composition.", isHomePage: true)
         ]
-		ClassListComponent(classes: classes)
+        LandingPageView()
 	}
 }
 
