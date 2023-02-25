@@ -44,7 +44,7 @@ struct ClassComponent: View {
                             Text(classDescription)
                                 .font(.body)
                                 .foregroundColor(.gray)
-                            if isHomePage {
+                            if !isHomePage {
                                 Spacer()
                                 
                                 Button(action: {}) {

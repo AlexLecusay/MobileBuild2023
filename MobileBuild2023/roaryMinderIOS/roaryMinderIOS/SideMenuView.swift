@@ -11,74 +11,78 @@ import SwiftUI
 
 struct SideMenuView: View {
     @Binding var isHomePage: Bool
+    @Binding var showSideBar: Bool
     
     var body: some View {
-        VStack(alignment: .leading, spacing: 16) {
+        VStack(alignment: .leading, spacing: 20) {
             HStack {
-                Button(action: {
-                    isHomePage = true
-                }) {
-                    Image(systemName: "xmark")
-                        .foregroundColor(.black)
-                }
-                .padding(.leading, 8)
+                Text("Roaryminders")
+                    .font(.headline)
+                    .foregroundColor(.blue)
                 
                 Spacer()
+                
+                Button(action: {
+                    showSideBar = false
+                }) {
+                    Image(systemName: "xmark")
+                        .font(.title2)
+                        .foregroundColor(.blue)
+                }
             }
+            .padding([.top, .leading, .trailing], 20)
+            
+            Divider()
+                .frame(height: 2)
+                .background(Color.blue)
+                .padding(.horizontal, 16)
             
             Button(action: {
                 isHomePage = true
+                showSideBar = false
             }) {
-                HStack {
+                HStack(spacing: 10) {
                     Image(systemName: "house")
                         .foregroundColor(.blue)
-                    
-                    Text("My Courses")
+                        .font(.title2)
+                    Text("My Classes")
+                        .font(.title3)
                         .foregroundColor(.blue)
                 }
-                .padding(.leading, 8)
             }
+            .padding(.horizontal, 20)
             
             Button(action: {
                 isHomePage = false
+                showSideBar = false
             }) {
-                HStack {
+                HStack(spacing: 10) {
                     Image(systemName: "list.bullet")
                         .foregroundColor(.blue)
-                    
+                        .font(.title2)
                     Text("All Classes")
+                        .font(.title3)
                         .foregroundColor(.blue)
                 }
-                .padding(.leading, 8)
             }
+            .padding(.horizontal, 20)
             
             Spacer()
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(
-            Color(UIColor.systemBackground)
-                .ignoresSafeArea()
-                .transition(.move(edge: .leading))
-        )
-        .onTapGesture {
-            isHomePage = true
-        }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.gray.opacity(0.2), lineWidth: 2)
-                .shadow(color: Color.gray.opacity(0.3), radius: 2, x: 0, y: 2)
-        )
-        .frame(maxWidth: UIScreen.main.bounds.width / 2)
+        .padding(.top, 50)
+        .background(Color(UIColor { (traitCollection: UITraitCollection) -> UIColor in
+            return traitCollection.userInterfaceStyle == .dark ?
+                UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1) :
+                UIColor(red: 0.95, green: 0.95, blue: 0.95, alpha: 1)
+        }))
+        .edgesIgnoringSafeArea(.all)
+        
     }
 }
 
 
-
-
 struct SideMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        SideMenuView(isHomePage: .constant(true))
-            .previewLayout(.sizeThatFits)
-            .padding()
+        SideMenuView(isHomePage: .constant(true),showSideBar: .constant(true))
     }
 }
