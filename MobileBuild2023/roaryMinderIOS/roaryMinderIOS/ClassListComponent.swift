@@ -1,10 +1,28 @@
 import SwiftUI
-import shared
 
-struct ContentView: View {
-	let greet = Greeting().greet()
+struct ClassListComponent: View {
+    let classes: [Class]
+    
+    var body: some View {
+        ScrollView {
+            LazyVStack {
+                ForEach(classes, id: \.title) { classItem in
+                    ClassComponent(
+                        classTitle: classItem.title,
+                        classDescription: classItem.description,
+                        classImage: Image("sample"),
+                        isHomePage: classItem.isHomePage
+                    )
+                    .padding(.vertical, 10)
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+    }
+}
 
-	var body: some View {
+struct ClassListComponent_Previews: PreviewProvider {
+    static var previews: some View {
         let classes = [
             Class(title: "History 101", description: "Learn about ancient civilizations and their impact on modern society.", isHomePage: true),
             Class(title: "Math 202", description: "Advanced calculus and mathematical analysis.", isHomePage: true),
@@ -15,12 +33,9 @@ struct ContentView: View {
             Class(title: "Computer Science 101", description: "Programming basics and problem solving.", isHomePage: true),
             Class(title: "Music 101", description: "Fundamentals of music theory and composition.", isHomePage: true)
         ]
-		ClassListComponent(classes: classes)
-	}
-}
-
-struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+        
+        ClassListComponent(classes: classes)
+            .previewLayout(.sizeThatFits)
+            .padding()
+    }
 }
