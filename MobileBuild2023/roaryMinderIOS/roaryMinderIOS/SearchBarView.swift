@@ -19,6 +19,10 @@ struct SearchBarView: View {
             
             TextField("Search", text: $text)
                 .foregroundColor(.primary)
+                .onTapGesture {
+                    // Call the `becomeFirstResponder()` selector to show the keyboard
+                    UIApplication.shared.sendAction(#selector(UIResponder.becomeFirstResponder), to: nil, from: nil, for: nil)
+                }
             
             if !text.isEmpty {
                 Button(action: {
@@ -35,6 +39,7 @@ struct SearchBarView: View {
         .cornerRadius(8)
     }
 }
+
 
 struct SearchBarView_Previews: PreviewProvider {
     static var previews: some View {

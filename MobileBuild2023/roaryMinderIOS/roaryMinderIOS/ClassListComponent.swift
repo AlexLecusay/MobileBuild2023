@@ -10,14 +10,17 @@ struct ClassListComponent: View {
                 ForEach(classes.filter { classItem in
                     isHomePage ? classItem.isHomePage : true
                 }, id: \.title) { classItem in
-                    ClassComponent(
-                        classTitle: classItem.title,
-                        classDescription: classItem.description,
-                        classImage: Image("sample"),
-                        isHomePage: classItem.isHomePage
-                    )
-                    .padding(.vertical, 10)
+                    NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
+                        ClassComponent(
+                            classTitle: classItem.title,
+                            classDescription: classItem.description,
+                            classImage: Image("sample"),
+                            isHomePage: classItem.isHomePage
+                        )
+                        .padding(.vertical, 10)
+                    }
                 }
+
             }
             .padding(.horizontal, 16)
         }
@@ -36,9 +39,9 @@ struct ClassListComponent_Previews: PreviewProvider {
             Class(title: "Computer Science 101", description: "Programming basics and problem solving.", isHomePage: true),
             Class(title: "Music 101", description: "Fundamentals of music theory and composition.", isHomePage: true)
         ]
-        
-        ClassListComponent(classes: classes,isHomePage: true)
-            .previewLayout(.sizeThatFits)
-            .padding()
+
+        NavigationView {
+            ClassListComponent(classes: classes, isHomePage: true)
+        }
     }
 }
