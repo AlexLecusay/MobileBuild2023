@@ -8,8 +8,8 @@
 
 import SwiftUI
 struct ViewOffsetKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        static var defaultValue: CGFloat = 0
+        static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
     }
 }
@@ -44,7 +44,9 @@ struct LandingPageView: View {
                         .padding(.horizontal)
                         .padding(.bottom, 8)
                     
-                    ClassListComponent(classes: Test().test)
+                    ClassListComponent(classes: Test().test.filter { classItem in
+                        searchText.isEmpty || classItem.title.localizedCaseInsensitiveContains(searchText)
+                    },isHomePage: isHomePage)
                 }
                 .background(GeometryReader { geo in
                     Color.clear.preference(key: ViewOffsetKey.self, value: geo.frame(in: .global).minY)

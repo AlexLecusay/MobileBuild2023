@@ -2,7 +2,7 @@ import SwiftUI
 
 struct ClassListComponent: View {
     let classes: [Class]
-    @State private var isHomePage = false
+    let isHomePage: Bool
 
     var body: some View {
         ScrollView {
@@ -23,6 +23,7 @@ struct ClassListComponent: View {
         }
     }
 }
+
 struct ClassListComponent_Previews: PreviewProvider {
     static var previews: some View {
         let classes = [
@@ -36,7 +37,7 @@ struct ClassListComponent_Previews: PreviewProvider {
             Class(title: "Music 101", description: "Fundamentals of music theory and composition.", isHomePage: true)
         ]
         
-        ClassListComponent(classes: classes)
+        ClassListComponent(classes: classes,isHomePage: true)
             .previewLayout(.sizeThatFits)
             .padding()
     }
