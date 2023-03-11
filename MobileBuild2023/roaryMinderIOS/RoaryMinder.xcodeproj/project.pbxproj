@@ -18,6 +18,8 @@
 		46E37DE029A9CE9900D65C10 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDF29A9CE9900D65C10 /* SearchBarView.swift */; };
 		46E37DE229A9CEC500D65C10 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DE129A9CEC500D65C10 /* SideMenuView.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		798CF96729B819D500D12FF8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CF96629B819D500D12FF8 /* NotificationView.swift */; };
+		798CF96929B82A3F00D12FF8 /* NotificationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CF96829B82A3F00D12FF8 /* NotificationListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,6 +49,8 @@
 		7555FF7B242A565900829871 /* RoaryMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoaryMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		798CF96629B819D500D12FF8 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		798CF96829B82A3F00D12FF8 /* NotificationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			children = (
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
 				7555FF82242A565900829871 /* ContentView.swift */,
+				798CF96629B819D500D12FF8 /* NotificationView.swift */,
+				798CF96829B82A3F00D12FF8 /* NotificationListView.swift */,
 				460F599E29A5C37300E11E59 /* ClassComponent.swift */,
 				46C429D729B295A400725C54 /* ClassDetailsView.swift */,
 				46E37DD929A9C1E400D65C10 /* ClassListComponent.swift */,
@@ -204,6 +210,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46E37DDA29A9C1E400D65C10 /* ClassListComponent.swift in Sources */,
+				798CF96929B82A3F00D12FF8 /* NotificationListView.swift in Sources */,
 				46E37DDE29A9CD5B00D65C10 /* LandingPageView.swift in Sources */,
 				46E37DE229A9CEC500D65C10 /* SideMenuView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
@@ -212,6 +219,7 @@
 				46C429D829B295A400725C54 /* ClassDetailsView.swift in Sources */,
 				46E37DDC29A9C83500D65C10 /* Class.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				798CF96729B819D500D12FF8 /* NotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
