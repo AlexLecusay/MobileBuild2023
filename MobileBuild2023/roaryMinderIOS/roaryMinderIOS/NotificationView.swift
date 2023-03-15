@@ -69,30 +69,14 @@ private func formattedDate(_ date: Date) -> String {
 
 struct NotificationView_Previews: PreviewProvider {
     static var previews: some View {
-        PreviewWrapper()
-    }
+        NotificationView(title: "New Notification", date: Date())
 
-    struct PreviewWrapper: View {
-        var body: some View {
-            ScrollView {
-                VStack(spacing: 20) {
-                    NotificationView(title: "New Notification", date: Date())
-                    NotificationView(title: "Reminder", date: Date().addingTimeInterval(3600))
-                    NotificationView(title: "Alert", date: Date().addingTimeInterval(7200))
-                    NotificationView(title: "Urgent Message", date: Date().addingTimeInterval(10800))
-                    NotificationView(title: "Hello World", date: Date().addingTimeInterval(14400))
-                    NotificationView(title: "SwiftUI Rocks!", date: Date().addingTimeInterval(18000))
-                    NotificationView(title: "Awesome App", date: Date().addingTimeInterval(21600))
-                    NotificationView(title: "Thanks for using!", date: Date().addingTimeInterval(25200))
-                    Spacer()
-                }
-                .padding()
-            }
-        }
     }
 }
 
-
-
-
-
+struct Notification: Identifiable {
+    var id = UUID()
+    var title: String
+    var date: Date
+    var course: String
+}

@@ -10,22 +10,34 @@ struct ClassListComponent: View {
                 ForEach(classes.filter { classItem in
                     isHomePage ? classItem.isHomePage : true
                 }, id: \.title) { classItem in
-                    NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
-                        ClassComponent(
-                            classTitle: classItem.title,
-                            classDescription: classItem.description,
-                            classImage: Image("sample"),
-                            isHomePage: classItem.isHomePage
-                        )
-                        .padding(.vertical, 10)
+                    if isHomePage {
+                        NavigationLink(destination: NotificationListView(notifications:Test().test2)) {
+                            ClassComponent(
+                                classTitle: classItem.title,
+                                classDescription: classItem.description,
+                                classImage: Image("sample"),
+                                isHomePage: classItem.isHomePage
+                            )
+                            .padding(.vertical, 10)
+                        }
+                    } else {
+                        NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
+                            ClassComponent(
+                                classTitle: classItem.title,
+                                classDescription: classItem.description,
+                                classImage: Image("sample"),
+                                isHomePage: classItem.isHomePage
+                            )
+                            .padding(.vertical, 10)
+                        }
                     }
                 }
-
             }
             .padding(.horizontal, 16)
         }
     }
 }
+
 
 struct ClassListComponent_Previews: PreviewProvider {
     static var previews: some View {

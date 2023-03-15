@@ -11,24 +11,27 @@ import SwiftUI
 struct ChatView: View {
     @State private var messageText = ""
     @State var messages: [String] = []
+    var notification: Notification
+
     
     
     var body: some View {
         VStack{
             
             HStack{
-                Button(action:{
-                    print("Hello world")
-                    
-                },label:{
-                    Image(systemName: "chevron.backward")
-                        .foregroundColor(Color.blue)
-                        .padding(.horizontal, 0)
-                })
+//                Button(action:{
+//                    print("Hello world")
+//
+//                },label:{
+//                    Image(systemName: "chevron.backward")
+//                        .foregroundColor(Color.blue)
+//                        .padding(.horizontal, 0)
+//                })
                 
-                Text("Introduction to Psychology")
-                    .bold()
+                Text(notification.title)
+                    .font(.subheadline)
                     .padding(.horizontal, 50)
+
                 
             }
             
@@ -70,8 +73,8 @@ struct ChatView: View {
             }
             .rotationEffect(.degrees(180))
             .background(Color.gray.opacity(0.1))
-            
-            .navigationBarTitle("Course", displayMode: .inline)
+            Spacer()
+                .navigationBarTitle(notification.course, displayMode: .inline)
             
             
             // Contains the Message bar
@@ -111,7 +114,10 @@ struct ChatView: View {
 
     struct ChatView_Previews: PreviewProvider {
         static var previews: some View {
-            ChatView()
+            ChatView(
+                notification: Notification(title: "Homework 1", date: Date().addingTimeInterval(25200),course: "Course Name")
+
+            )
            
 
     }
