@@ -34,6 +34,28 @@ struct ClassListComponent: View {
                 }
             }
             .padding(.horizontal, 16)
+            HStack {
+                Button(action: {
+                    // Perform action when button is tapped
+                }, label: {
+                    HStack {
+                        Image(systemName: "plus")
+                            .padding(.trailing, 5)
+                        Text("Add")
+                            .fontWeight(.bold)
+                    }
+                    .padding(.horizontal, 145)
+                    .padding(.vertical, 10)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 8)
+                            .stroke(Color.blue, lineWidth: 2)
+                    )
+                })
+            }
+            Spacer()
         }
     }
 }
