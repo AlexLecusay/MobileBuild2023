@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/iAlex/Desktop/MobileBuild2023/MobileBuild2023/roaryMinderIOS/RoaryMinder.xcodeproj">
+      location = "self:">
    </FileRef>
 </Workspace>

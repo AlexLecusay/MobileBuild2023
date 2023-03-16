@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "44840864213",
+    "project_id": "mobilebuild2023",
+    "storage_bucket": "mobilebuild2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:44840864213:android:a2ac860efaec2ad864155c",
+        "android_client_info": {
+          "package_name": "com.example.roaryminder.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "44840864213-fmbsvv9blrofe595mhonqjucn2ijflb9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAJ2VRq_LjQT9s2PkldkgAWtuG_s57uAz0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "44840864213-fmbsvv9blrofe595mhonqjucn2ijflb9.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "44840864213-iddj4o1k765p3hnaq14t8fgpi8gtscd4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "orgIdentifier.roaryMinderIOS"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
