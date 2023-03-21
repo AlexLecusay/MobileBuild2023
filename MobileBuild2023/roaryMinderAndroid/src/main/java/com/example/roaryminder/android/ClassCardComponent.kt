@@ -8,6 +8,9 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,11 +22,13 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ClassCardComponent(
-    classTitle: String,
-    classDescription: String,
+    classTitle: String?,
+    classDescription: String?,
     classImage: Painter,
     isHomePage: Boolean
 ) {
+    val classTitle by remember { mutableStateOf(classTitle) }
+    val classDescription by remember { mutableStateOf(classDescription) }
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -41,7 +46,7 @@ fun ClassCardComponent(
                     .fillMaxWidth()
             )
             Text(
-                text = classTitle,
+                text = classTitle.toString(),
                 style = MaterialTheme.typography.h6,
                 modifier = Modifier.padding(start = 16.dp, top = 8.dp)
             )
@@ -55,7 +60,7 @@ fun ClassCardComponent(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = classDescription,
+                    text = classDescription.toString(),
                     style = MaterialTheme.typography.body2,
 
                     modifier = Modifier
@@ -75,26 +80,5 @@ fun ClassCardComponent(
                     )
             }
         }
-    }
-}
-
-@Composable
-fun ClassComponentList() {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-
-    }
-}
-
-@Preview
-@Composable
-fun ClassCardComponentPreview() {
-    MyApplicationTheme {
-        //ClassComponentList()
-        ClassCardComponent(
-            classTitle = "History 101",
-            classDescription = "Learn about ancient civilizations and their impact on modern society.",
-            classImage = painterResource(R.drawable.sample),
-            isHomePage = false
-        )
     }
 }
