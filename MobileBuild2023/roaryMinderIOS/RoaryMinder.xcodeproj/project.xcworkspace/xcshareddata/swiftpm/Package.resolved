@@ -74,6 +74,15 @@
         }
       },
       {
+        "package": "KMMViewModel",
+        "repositoryURL": "https://github.com/rickclephas/KMM-ViewModel.git",
+        "state": {
+          "branch": "master",
+          "revision": "ee4a96b11cab114d0abb43acddcb9edbc75f922c",
+          "version": null
+        }
+      },
+      {
         "package": "leveldb",
         "repositoryURL": "https://github.com/firebase/leveldb.git",
         "state": {

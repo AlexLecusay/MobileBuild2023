@@ -1,8 +1,11 @@
 package com.example.roaryminder
 
-import androidx.lifecycle.ViewModel
+import com.rickclephas.kmm.viewmodel.KMMViewModel
+import com.rickclephas.kmm.viewmodel.MutableStateFlow
+import com.rickclephas.kmm.viewmodel.stateIn
+import kotlinx.coroutines.flow.SharingStarted
 
-class RoaryViewModel(): ViewModel() {
+open class RoaryViewModel: KMMViewModel() {
     val projectTitle = "Roaryminder"
     val fakeClasses = listOf(
         FakeClass("COP123", "A computer class"),
@@ -11,5 +14,5 @@ class RoaryViewModel(): ViewModel() {
         FakeClass("Mother", "A mother class"),
         FakeClass("Father", "A father class"),
         FakeClass("Cousin", "A cousin class")
-        )
+    )
 }

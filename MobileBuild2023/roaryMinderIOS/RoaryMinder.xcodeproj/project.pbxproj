@@ -47,6 +47,9 @@
 		5719607229C3D1F700B432D6 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5719607129C3D1F700B432D6 /* FirebaseRemoteConfigSwift */; };
 		5719607429C3D1F700B432D6 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5719607329C3D1F700B432D6 /* FirebaseStorage */; };
 		5719607629C3D1F700B432D6 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 5719607529C3D1F700B432D6 /* FirebaseStorageCombine-Community */; };
+		5740C38429CA761B006A6FF1 /* KMMViewModelCore in Frameworks */ = {isa = PBXBuildFile; productRef = 5740C38329CA761B006A6FF1 /* KMMViewModelCore */; };
+		5740C38629CA761B006A6FF1 /* KMMViewModelSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5740C38529CA761B006A6FF1 /* KMMViewModelSwiftUI */; };
+		5740C38829CA7657006A6FF1 /* KMMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5740C38729CA7657006A6FF1 /* KMMViewModel.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 		798CF96729B819D500D12FF8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CF96629B819D500D12FF8 /* NotificationView.swift */; };
 		798CF96929B82A3F00D12FF8 /* NotificationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CF96829B82A3F00D12FF8 /* NotificationListView.swift */; };
@@ -79,6 +82,7 @@
 		46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		46E37DDF29A9CE9900D65C10 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		46E37DE129A9CEC500D65C10 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		5740C38729CA7657006A6FF1 /* KMMViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KMMViewModel.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* RoaryMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoaryMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,11 +109,13 @@
 				5719605229C3D1F700B432D6 /* FirebaseCrashlytics in Frameworks */,
 				5719607229C3D1F700B432D6 /* FirebaseRemoteConfigSwift in Frameworks */,
 				5719606429C3D1F700B432D6 /* FirebaseInAppMessaging-Beta in Frameworks */,
+				5740C38429CA761B006A6FF1 /* KMMViewModelCore in Frameworks */,
 				5719605629C3D1F700B432D6 /* FirebaseDatabaseSwift in Frameworks */,
 				5719606029C3D1F700B432D6 /* FirebaseFunctions in Frameworks */,
 				5719607629C3D1F700B432D6 /* FirebaseStorageCombine-Community in Frameworks */,
 				5719607029C3D1F700B432D6 /* FirebaseRemoteConfig in Frameworks */,
 				5719604C29C3D1F700B432D6 /* FirebaseAppDistribution-Beta in Frameworks */,
+				5740C38629CA761B006A6FF1 /* KMMViewModelSwiftUI in Frameworks */,
 				5719605029C3D1F700B432D6 /* FirebaseAuthCombine-Community in Frameworks */,
 				5719606E29C3D1F700B432D6 /* FirebasePerformance in Frameworks */,
 				5719606629C3D1F700B432D6 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
@@ -169,6 +175,7 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
+				5740C38729CA7657006A6FF1 /* KMMViewModel.swift */,
 			);
 			path = roaryMinderIOS;
 			sourceTree = "<group>";
@@ -226,6 +233,8 @@
 				5719607129C3D1F700B432D6 /* FirebaseRemoteConfigSwift */,
 				5719607329C3D1F700B432D6 /* FirebaseStorage */,
 				5719607529C3D1F700B432D6 /* FirebaseStorageCombine-Community */,
+				5740C38329CA761B006A6FF1 /* KMMViewModelCore */,
+				5740C38529CA761B006A6FF1 /* KMMViewModelSwiftUI */,
 			);
 			productName = roaryMinderIOS;
 			productReference = 7555FF7B242A565900829871 /* RoaryMinder.app */;
@@ -257,6 +266,7 @@
 			mainGroup = 7555FF72242A565900829871;
 			packageReferences = (
 				5719604029C3D1F600B432D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				5740C38229CA761B006A6FF1 /* XCRemoteSwiftPackageReference "KMM-ViewModel" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -307,6 +317,7 @@
 				46C429DC29C130AC00725C54 /* RoaryMinderResponse.swift in Sources */,
 				46E37DDA29A9C1E400D65C10 /* ClassListComponent.swift in Sources */,
 				798CF96929B82A3F00D12FF8 /* NotificationListView.swift in Sources */,
+				5740C38829CA7657006A6FF1 /* KMMViewModel.swift in Sources */,
 				46C429DE29C130B600725C54 /* iOSAppChat.swift in Sources */,
 				46E37DDE29A9CD5B00D65C10 /* LandingPageView.swift in Sources */,
 				46E37DE229A9CEC500D65C10 /* SideMenuView.swift in Sources */,
@@ -532,6 +543,14 @@
 				minimumVersion = 9.0.0;
 			};
 		};
+		5740C38229CA761B006A6FF1 /* XCRemoteSwiftPackageReference "KMM-ViewModel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rickclephas/KMM-ViewModel.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -669,6 +688,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5719604029C3D1F600B432D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		5740C38329CA761B006A6FF1 /* KMMViewModelCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5740C38229CA761B006A6FF1 /* XCRemoteSwiftPackageReference "KMM-ViewModel" */;
+			productName = KMMViewModelCore;
+		};
+		5740C38529CA761B006A6FF1 /* KMMViewModelSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5740C38229CA761B006A6FF1 /* XCRemoteSwiftPackageReference "KMM-ViewModel" */;
+			productName = KMMViewModelSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

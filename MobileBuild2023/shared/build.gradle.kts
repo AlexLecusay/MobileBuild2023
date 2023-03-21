@@ -2,6 +2,9 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
 }
+dependencies {
+    implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
+}
 
 kotlin {
     android {
@@ -26,6 +29,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation("dev.gitlive:firebase-firestore:1.6.1")
+                implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
             }
         }
         val commonTest by getting {
