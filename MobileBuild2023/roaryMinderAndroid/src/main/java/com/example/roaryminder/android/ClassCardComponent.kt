@@ -18,7 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ClassComponent(
+fun ClassCardComponent(
     classTitle: String,
     classDescription: String,
     classImage: Painter,
@@ -49,7 +49,8 @@ fun ClassComponent(
                 color = Color.Gray.copy(alpha = 0.3f),
                 modifier = Modifier.padding(vertical = 4.dp)
             )
-            Row(modifier = Modifier.fillMaxWidth(),
+            Row(
+                modifier = Modifier.fillMaxWidth(),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
@@ -60,58 +61,40 @@ fun ClassComponent(
                     modifier = Modifier
                         .padding(start = 16.dp, bottom = 8.dp, end = 16.dp)
                         .fillMaxWidth(.85f)
-
-
                 )
 
-                if(!isHomePage)
+                if (!isHomePage)
                     Icon(
                         imageVector = Icons.Default.AddCircle,
                         contentDescription = "add",
                         tint = Color.Blue,
                         modifier = Modifier
-                            .padding(end = 16.dp, bottom = 8.dp).fillMaxWidth()
+                            .padding(end = 16.dp, bottom = 8.dp)
+                            .fillMaxWidth()
 
                     )
-
             }
         }
     }
 }
 
 @Composable
-fun ClassComponentList(){
-    LazyColumn(modifier = Modifier.fillMaxSize()){
-        item {
-            ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
-        }
-        item {
-            ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
-        }
-        item {
-            ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
-        }
-        item {
-            ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
-        }
-        item {
-            ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
-        }
-        item {
-            ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
-        }
-        item {
-            ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
-        }
+fun ClassComponentList() {
+    LazyColumn(modifier = Modifier.fillMaxSize()) {
 
     }
 }
 
 @Preview
 @Composable
-fun DefaultPreviews() {
+fun ClassCardComponentPreview() {
     MyApplicationTheme {
-        ClassComponentList()
-        //ClassComponent(classTitle = "History 101", classDescription = "Learn about ancient civilizations and their impact on modern society.", classImage = painterResource(R.drawable.sample),isHomePage = false)
+        //ClassComponentList()
+        ClassCardComponent(
+            classTitle = "History 101",
+            classDescription = "Learn about ancient civilizations and their impact on modern society.",
+            classImage = painterResource(R.drawable.sample),
+            isHomePage = false
+        )
     }
 }
