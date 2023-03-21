@@ -1,4 +1,4 @@
-package com.example.roaryminder.android
+package com.example.roaryminder
 
 import androidx.lifecycle.ViewModel
 
@@ -10,6 +10,6 @@ class RoaryViewModel(): ViewModel() {
         FakeClass("HER", "A her class"),
         FakeClass("Mother", "A mother class"),
         FakeClass("Father", "A father class"),
-        FakeClass("Cousin", "A cousin class"),
+        FakeClass("Cousin", "A cousin class")
         )
 }
