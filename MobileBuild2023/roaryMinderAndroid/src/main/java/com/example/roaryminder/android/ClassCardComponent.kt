@@ -3,6 +3,7 @@ package com.example.roaryminder.android
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -19,6 +20,10 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.roaryminder.RoaryViewModel
+import com.example.roaryminder.repo.Assignment
+import com.example.roaryminder.repo.ChatRepo
+import com.example.roaryminder.repo.Class
 
 @Composable
 fun ClassCardComponent(
@@ -82,3 +87,107 @@ fun ClassCardComponent(
         }
     }
 }
+
+@OptIn(ExperimentalMaterialApi::class)
+@Composable
+fun ClassCardComponent1(
+
+    class1: com.example.roaryminder.repo.Class,
+    modifier: Modifier =Modifier
+) {
+
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(16.dp),
+        shape = RoundedCornerShape(10.dp),
+        elevation = 5.dp,
+        onClick = {}
+    ) {
+        Column {
+            Image(
+                painter = painterResource(id = R.drawable.sample),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .height(120.dp)
+                    .fillMaxWidth()
+            )
+            Text(
+                text = class1.className,
+                style = MaterialTheme.typography.h6,
+                modifier = Modifier.padding(start = 16.dp, top = 8.dp)
+            )
+            Divider(
+                color = Color.Gray.copy(alpha = 0.3f),
+                modifier = Modifier.padding(vertical = 4.dp)
+            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.SpaceBetween
+            ) {
+                Text(
+                    text = class1.classDescription,
+                    style = MaterialTheme.typography.body2,
+
+                    modifier = Modifier
+                        .padding(start = 16.dp, bottom = 8.dp, end = 16.dp)
+                        .fillMaxWidth(.85f)
+                )
+
+                if (true)
+                    Icon(
+                        imageVector = Icons.Default.AddCircle,
+                        contentDescription = "add",
+                        tint = Color.Blue,
+                        modifier = Modifier
+                            .padding(end = 16.dp, bottom = 8.dp)
+                            .fillMaxWidth()
+
+                    )
+            }
+        }
+    }
+}
+
+//preview of ClassCardComponent1
+@Preview
+@Composable
+fun ClassCardComponent1Preview() {
+    ClassCardComponent1(
+        Class(
+        "COP1234",
+        "This is a class",
+        mutableListOf(
+            Assignment(
+                "Homework 2",
+                "This is the second homework",
+                ChatRepo(mutableListOf("Message one", "Message two"))
+            )
+        )
+    )
+    )
+}
+
+@Composable
+fun ClassCardList(
+    classes: List<com.example.roaryminder.repo.Class>,
+    modifier: Modifier = Modifier
+) {
+    LazyColumn(modifier = modifier) {
+       items(classes){
+           class1 ->
+              ClassCardComponent1(class1 = class1)
+       }
+    }
+}
+
+@Preview
+@Composable
+fun ClassCardListPreview(
+
+){
+    ClassCardList(classes = RoaryViewModel().loadClasses())
+}
+

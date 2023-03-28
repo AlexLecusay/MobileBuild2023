@@ -21,7 +21,7 @@ import java.time.format.DateTimeFormatter
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun NotificationCardComponent(
+fun TopicCardComponent(
     notificationTitle: String,
     dueDate: LocalDateTime
 
@@ -72,9 +72,16 @@ fun NotificationCardComponent(
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun NotificationCardList() {
+fun TopicCardList() {
     LazyColumn(modifier = Modifier.fillMaxSize()) {
-
+        repeat(15) {
+            item {
+                TopicCardComponent(
+                    notificationTitle = "Test 1",
+                    dueDate = LocalDateTime.of(2023, 3, 30, 14, 30)
+                )
+            }
+        }
     }
 }
 
@@ -85,7 +92,7 @@ fun NotificationCardComponentPreview() {
     MyApplicationTheme {
 
         //NotificationCardList()
-        NotificationCardComponent(
+        TopicCardComponent(
             notificationTitle = "Test 1",
             dueDate = LocalDateTime.of(2023, 3, 30, 14, 30)
         )
