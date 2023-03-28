@@ -52,6 +52,7 @@
 		5740C38629CA761B006A6FF1 /* KMMViewModelSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 5740C38529CA761B006A6FF1 /* KMMViewModelSwiftUI */; };
 		5740C38829CA7657006A6FF1 /* KMMViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5740C38729CA7657006A6FF1 /* KMMViewModel.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		7922C3A029CF46800047776D /* AddNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7922C39F29CF46800047776D /* AddNotificationView.swift */; };
 		798CF96729B819D500D12FF8 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CF96629B819D500D12FF8 /* NotificationView.swift */; };
 		798CF96929B82A3F00D12FF8 /* NotificationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CF96829B82A3F00D12FF8 /* NotificationListView.swift */; };
 		864AA11529CE255600292C7B /* ClassCreation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864AA11429CE255600292C7B /* ClassCreation.swift */; };
@@ -89,6 +90,7 @@
 		7555FF7B242A565900829871 /* RoaryMinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoaryMinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7922C39F29CF46800047776D /* AddNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNotificationView.swift; sourceTree = "<group>"; };
 		798CF96629B819D500D12FF8 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		798CF96829B82A3F00D12FF8 /* NotificationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationListView.swift; sourceTree = "<group>"; };
 		864AA11429CE255600292C7B /* ClassCreation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassCreation.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				798CF96629B819D500D12FF8 /* NotificationView.swift */,
 				864AA11429CE255600292C7B /* ClassCreation.swift */,
 				798CF96829B82A3F00D12FF8 /* NotificationListView.swift */,
+				7922C39F29CF46800047776D /* AddNotificationView.swift */,
 				460F599E29A5C37300E11E59 /* ClassComponent.swift */,
 				46C429D729B295A400725C54 /* ClassDetailsView.swift */,
 				46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */,
@@ -337,6 +340,7 @@
 				46E37DDC29A9C83500D65C10 /* Class.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				798CF96729B819D500D12FF8 /* NotificationView.swift in Sources */,
+				7922C3A029CF46800047776D /* AddNotificationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
