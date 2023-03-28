@@ -8,14 +8,33 @@
 
 import SwiftUI
 
-struct ClassCreation: View {
+struct ClassCreationView: View {
+    @State private var courseName = ""
+    @State private var professorName = ""
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            //Course & Professor Name
+            
+            TextField("Course Name", text: $courseName)
+                .padding()
+            TextField("Professor Name", text: $professorName)
+                .padding()
+            
+            //Add Class Button
+            Button(action: {
+            }) {
+                Text("Add Class")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+        }
+        .padding()
+        .navigationBarTitle("Class Creation")
     }
-}
-
-struct ClassCreation_Previews: PreviewProvider {
-    static var previews: some View {
-        ClassCreation()
-    }
+    
 }

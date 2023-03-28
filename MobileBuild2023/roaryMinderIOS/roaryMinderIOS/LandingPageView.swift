@@ -48,7 +48,20 @@ struct LandingPageView: View {
                         ClassListComponent(classes: Test().test.filter { classItem in
                             searchText.isEmpty || classItem.title.localizedCaseInsensitiveContains(searchText)
                         },isHomePage: isHomePage)
+                        //Class Creation View Page
+                        NavigationLink(destination: ClassCreationView()) {
+                                                   HStack {
+                                                       Image(systemName: "plus.circle.fill")
+                                                           .foregroundColor(.blue)
+                                                           .imageScale(.large)
+                                                       Text("Add new class")
+                                                   }
+                                               }
+                                               .padding()
+                        
                     }
+                    //
+                    
                     .background(GeometryReader { geo in
                         Color.clear.preference(key: ViewOffsetKey.self, value: geo.frame(in: .global).minY)
                     })
