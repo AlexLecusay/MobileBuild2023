@@ -84,17 +84,3 @@ fun TopicCardList() {
         }
     }
 }
-
-@RequiresApi(Build.VERSION_CODES.O)
-@Preview
-@Composable
-fun NotificationCardComponentPreview() {
-    MyApplicationTheme {
-
-        //NotificationCardList()
-        TopicCardComponent(
-            notificationTitle = "Test 1",
-            dueDate = LocalDateTime.of(2023, 3, 30, 14, 30)
-        )
-    }
-}

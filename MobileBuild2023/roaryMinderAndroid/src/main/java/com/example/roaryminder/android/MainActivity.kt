@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    HomePage(viewModel = RoaryViewModel())
+                    RoaryNavHost(viewModel = RoaryViewModel())
                 }
             }
         }
