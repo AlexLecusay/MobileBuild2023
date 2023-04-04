@@ -9,17 +9,34 @@
 import SwiftUI
 
 struct AddNotificationView: View {
+    @State private var assignmentName = ""
+    @State private var dueDate = Date()
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            //Assignment Name and Due Date
+            
+            TextField("Assignment Name", text: $assignmentName)
+                .padding()
+            
+            DatePicker("Due Date", selection: $dueDate, displayedComponents: .date)
+                .padding()
+            
+            //Add Notification Button
+            Button(action: {
+            }) {
+                Text("Add Notification")
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+        }
+        .padding()
+        .navigationBarTitle("Notification Creation")
     }
 }
 
-struct AddNotificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            AddNotificationView()
-            
-        }
-    }
-}
 
