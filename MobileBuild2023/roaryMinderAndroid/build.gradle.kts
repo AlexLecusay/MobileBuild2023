@@ -41,13 +41,15 @@ android {
 
 dependencies {
     implementation(project(":shared"))
-    implementation("androidx.compose.ui:ui:1.4.0")
-    implementation("androidx.compose.ui:ui-tooling:1.4.0")
-    implementation("androidx.compose.ui:ui-tooling-preview:1.4.0")
-    implementation("androidx.compose.foundation:foundation:1.4.0")
-    implementation("androidx.compose.material:material:1.4.0")
+    implementation("androidx.compose.ui:ui:1.4.1")
+    implementation("androidx.compose.ui:ui-tooling:1.4.1")
+    implementation("androidx.compose.ui:ui-tooling-preview:1.4.1")
+    implementation("androidx.compose.foundation:foundation:1.4.1")
+    implementation("androidx.compose.material:material:1.4.1")
     implementation("androidx.activity:activity-compose:1.7.0")
     implementation(platform("com.google.firebase:firebase-bom:31.2.3"))
     implementation("com.rickclephas.kmm:kmm-viewmodel-core:latest.integration")
-    implementation("androidx.navigation:navigation-compose:2.6.0-alpha08")
+    implementation("androidx.navigation:navigation-compose:2.6.0-alpha09")
+    compileOnly("io.realm.kotlin:library-sync:1.4.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 }

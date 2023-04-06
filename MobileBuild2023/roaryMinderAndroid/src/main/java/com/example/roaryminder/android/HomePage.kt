@@ -11,10 +11,8 @@ fun HomePage(
     val scaffoldState = rememberScaffoldState(rememberDrawerState(DrawerValue.Closed))
     Scaffold(
         scaffoldState = scaffoldState,
-        topBar = { TopAppBar(title = {Text("Classes")},backgroundColor = MaterialTheme.colors.primary)  },
+        topBar = { TopAppBar(title = {Text(viewModel.projectTitle)},backgroundColor = MaterialTheme.colors.primary)  },
         drawerContent = { Text(text = "Drawer Menu 1") },
-        content = { ClassCardList(classes = RoaryViewModel().loadClasses()) }
+        content = { ClassCardList(classes = viewModel.loadClasses()) }
     )
 }
-
-//ClassCardList(classes = RoaryViewModel().loadClasses())

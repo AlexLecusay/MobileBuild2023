@@ -1,11 +1,14 @@
-
 plugins {
     kotlin("multiplatform")
     id("com.android.library")
+    id("io.realm.kotlin")
 }
 dependencies {
     implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.1")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("io.realm.kotlin:library-base:1.7.0")
+    implementation("io.realm.kotlin:library-sync:1.7.0")
 }
 
 kotlin {
@@ -30,9 +33,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-               //implementation("dev.gitlive:firebase-firestore:1.6.1")
                 implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
                 implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.1")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                implementation("io.realm.kotlin:library-sync:1.4.0")
             }
         }
         val commonTest by getting {
