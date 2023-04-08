@@ -37,7 +37,7 @@ class RoaryViewModel: KMMViewModel() {
                 classDescription = "Learn about ancient civilizations and their impact on modern society.",
                 classAssignments = mutableListOf(
                     Assignment(
-                        "Homework 2",
+                        "Homework for 101",
                         "This is the second homework",
                         ChatRepo(mutableListOf("Message one", "Message two"))
                     )
@@ -48,7 +48,7 @@ class RoaryViewModel: KMMViewModel() {
                 classDescription = "Learn about ancient civilizations and their impact on modern society.",
                 classAssignments = mutableListOf(
                     Assignment(
-                        "Homework 2",
+                        "Homework for 202",
                         "This is the second homework",
                         ChatRepo(mutableListOf("Message one", "Message two"))
                     )
@@ -59,7 +59,7 @@ class RoaryViewModel: KMMViewModel() {
                 classDescription = "Learn about ancient civilizations and their impact on modern society.",
                 classAssignments = mutableListOf(
                     Assignment(
-                        "Homework 2",
+                        "Homework for 105",
                         "This is the second homework",
                         ChatRepo(mutableListOf("Message one", "Message two"))
                     )
@@ -70,7 +70,12 @@ class RoaryViewModel: KMMViewModel() {
                 classDescription = "Learn about ancient civilizations and their impact on modern society.",
                 classAssignments = mutableListOf(
                     Assignment(
-                        "Homework 2",
+                        "Homework 104",
+                        "This is the second homework",
+                        ChatRepo(mutableListOf("Message one", "Message two"))
+                    ),
+                    Assignment(
+                        "Homework 104",
                         "This is the second homework",
                         ChatRepo(mutableListOf("Message one", "Message two"))
                     )

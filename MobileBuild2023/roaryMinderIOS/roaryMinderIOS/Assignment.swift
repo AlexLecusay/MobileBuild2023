@@ -14,12 +14,12 @@ extension shared.Assignment: Identifiable {
     }
 }
 
-
-struct Assignment: Identifiable {
-    var id = UUID()
-    var title: String
-    var description: String
-    var date: Date
-    var course: String
-    var chats: ChatRepo
-}
+//
+//struct Assignment: Identifiable {
+//    var id = UUID()
+//    var title: String
+//    var description: String
+//    var date: Date
+//    var course: String
+//    var chats: ChatRepo
+//}
