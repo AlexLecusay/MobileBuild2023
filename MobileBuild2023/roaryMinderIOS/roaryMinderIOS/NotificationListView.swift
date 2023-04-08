@@ -7,16 +7,16 @@
 //
 
 import SwiftUI
-
+import shared
 struct NotificationListView: View {
-    var notifications: [Notification]
+    var assignments: [shared.Assignment]
     
     var body: some View {
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(notifications) { notification in
-                        NavigationLink(destination: ChatView(notification: notification)) {
-                            NotificationView(title: notification.title, date: notification.date) {
+                    ForEach(assignments) { assignment in
+                        NavigationLink(destination: ChatView(assignment:assignment)) {
+                            NotificationView(assignment: assignment) {
                                 // Bell button action here
                                 print("Bell button tapped")
                             }
@@ -40,14 +40,14 @@ struct NotificationListView: View {
 
 struct NotificationListView_Previews: PreviewProvider {
     static var previews: some View {
-        NotificationListView(notifications: [
-            Notification(title: "New Notification", date: Date(), course: "Introduction to Psychology"),
-            Notification(title: "Reminder", date: Date().addingTimeInterval(3600), course: "Introduction to Psychology"),
-            Notification(title: "Alert", date: Date().addingTimeInterval(7200), course: "Introduction to Psychology"),
-            Notification(title: "Urgent Message", date: Date().addingTimeInterval(10800), course: "Introduction to Psychology"),
-            Notification(title: "Hello World", date: Date().addingTimeInterval(14400), course: "Introduction to Psychology"),
-            Notification(title: "SwiftUI Rocks!", date: Date().addingTimeInterval(18000), course: "Introduction to Psychology"),
-            Notification(title: "Awesome App", date: Date().addingTimeInterval(21600), course: "Introduction to Psychology")
-        ])
+        let messages = ["Hello!", "How are you?"]
+        let messagesArray = NSMutableArray(array: messages)
+        let chatRepo = shared.ChatRepo(messages: messagesArray)
+        let assignments = [
+            shared.Assignment(assName: "String", assDescription: "String", assChat: chatRepo),
+            shared.Assignment(assName: "String2", assDescription: "String2", assChat: chatRepo)
+        ]
+
+        NotificationListView(assignments: assignments)
     }
 }

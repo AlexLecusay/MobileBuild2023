@@ -7,11 +7,11 @@
 //
 
 import SwiftUI
-
+import shared
 struct ChatView: View {
     @State private var messageText = ""
     @State var messages: [String] = []
-    var notification: Notification
+    var assignment: shared.Assignment
 
     
     
@@ -28,7 +28,7 @@ struct ChatView: View {
 //                        .padding(.horizontal, 0)
 //                })
                 
-                Text(notification.title)
+                Text(assignment.assName)
                     .font(.subheadline)
                     .padding(.horizontal, 50)
 
@@ -74,7 +74,7 @@ struct ChatView: View {
             .rotationEffect(.degrees(180))
             .background(Color.gray.opacity(0.1))
             Spacer()
-                .navigationBarTitle(notification.course, displayMode: .inline)
+                .navigationBarTitle(assignment.assName, displayMode: .inline)
             
             
             // Contains the Message bar
@@ -112,13 +112,15 @@ struct ChatView: View {
     }
 
 
-    struct ChatView_Previews: PreviewProvider {
-        static var previews: some View {
-            ChatView(
-                notification: Notification(title: "Homework 1", date: Date().addingTimeInterval(25200),course: "Course Name")
+struct ChatView_Previews: PreviewProvider {
+    static var previews: some View {
+        let messages = ["Hello!", "How are you?"]
+        let messagesArray = NSMutableArray(array: messages)
+        let chatRepo = shared.ChatRepo(messages: messagesArray)
+        let assignment = shared.Assignment(assName: "String", assDescription: "String", assChat: chatRepo)
 
-            )
-           
 
+        ChatView(assignment: assignment)
     }
 }
+

@@ -1,38 +1,68 @@
 import SwiftUI
-
+import shared
 struct ClassListComponent: View {
-    let classes: [Class]
+    let classes: [shared.Class]
     let isHomePage: Bool
 
     var body: some View {
         ScrollView {
+//            LazyVStack {
+//                ForEach(classes, id: \.className) { classItem in
+//                    let isHomePage = Bool.random()//random for now...
+//                    if isHomePage {
+//                        NavigationLink(destination: NotificationListView(notifications:Test().test2)) {
+//                            ClassComponent(
+//                                classTitle: classItem.className,
+//                                classDescription: classItem.classDescription,
+//                                classImage: Image("sample"),
+//                                isHomePage: isHomePage
+//                            )
+//                            .padding(.vertical, 10)
+//                        }
+//                    } else {
+//                        NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
+//                            ClassComponent(
+//                                classTitle: classItem.className,
+//                                classDescription: classItem.classDescription,
+//                                classImage: Image("sample"),
+//                                isHomePage: isHomePage
+//                            )
+//                            .padding(.vertical, 10)
+//                        }
+//                    }
+//                }
+//            }
             LazyVStack {
-                ForEach(classes.filter { classItem in
-                    isHomePage ? classItem.isHomePage : true
-                }, id: \.title) { classItem in
-                    if isHomePage {
-                        NavigationLink(destination: NotificationListView(notifications:Test().test2)) {
-                            ClassComponent(
-                                classTitle: classItem.title,
-                                classDescription: classItem.description,
-                                classImage: Image("sample"),
-                                isHomePage: classItem.isHomePage
-                            )
-                            .padding(.vertical, 10)
-                        }
-                    } else {
-                        NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
-                            ClassComponent(
-                                classTitle: classItem.title,
-                                classDescription: classItem.description,
-                                classImage: Image("sample"),
-                                isHomePage: classItem.isHomePage
-                            )
-                            .padding(.vertical, 10)
+                ForEach(classes, id: \.className) { classItem in
+                    let isHomePage = Bool.random() //random for now...
+
+                    Group {
+                        if isHomePage {
+                            NavigationLink(destination: NotificationListView(assignments: Test().test2)) {
+                                ClassComponent(
+                                    classTitle: classItem.className,
+                                    classDescription: classItem.classDescription,
+                                    classImage: Image("sample"),
+                                    isHomePage: isHomePage
+                                )
+                                .padding(.vertical, 10)
+                            }
+                        } else {
+                            NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
+                                ClassComponent(
+                                    classTitle: classItem.className,
+                                    classDescription: classItem.classDescription,
+                                    classImage: Image("sample"),
+                                    isHomePage: isHomePage
+                                )
+                                .padding(.vertical, 10)
+                            }
                         }
                     }
                 }
             }
+
+
             .padding(.horizontal, 16)
 //            HStack {
 //                Button(action: {
@@ -64,14 +94,8 @@ struct ClassListComponent: View {
 struct ClassListComponent_Previews: PreviewProvider {
     static var previews: some View {
         let classes = [
-            Class(title: "History 101", description: "Learn about ancient civilizations and their impact on modern society.", isHomePage: true),
-            Class(title: "Math 202", description: "Advanced calculus and mathematical analysis.", isHomePage: false),
-            Class(title: "Chemistry 101", description: "Introduction to chemical reactions and bonding.", isHomePage: false),
-            Class(title: "English 201", description: "Analyzing literature and critical thinking.", isHomePage: false),
-            Class(title: "Biology 101", description: "Fundamentals of biology and evolution.", isHomePage: false),
-            Class(title: "Art 101", description: "Introduction to painting and drawing techniques.", isHomePage: true),
-            Class(title: "Computer Science 101", description: "Programming basics and problem solving.", isHomePage: true),
-            Class(title: "Music 101", description: "Fundamentals of music theory and composition.", isHomePage: true)
+            shared.Class(className: "History 101", classDescription: "Learn about ancient civilizations and their impact on modern society.", classAssignments: []),
+            shared.Class(className: "Math 202", classDescription: "Advanced calculus and mathematical analysis.", classAssignments: [])
         ]
 
         NavigationView {

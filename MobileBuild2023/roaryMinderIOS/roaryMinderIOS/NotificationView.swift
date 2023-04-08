@@ -8,10 +8,11 @@
 
 
 import SwiftUI
-
+import shared
 struct NotificationView: View {
-    var title: String
-    var date: Date
+    var assignment: shared.Assignment
+//    var title: String
+//    var date: Date
     @State var isBellFilled = false // add state variable to track bell icon fill state
     var bellAction: () -> Void // Add a closure to handle the bell button action
     
@@ -19,7 +20,7 @@ struct NotificationView: View {
         ZStack {
             HStack {
                 // Title in top left corner
-                Text(title)
+                Text(assignment.assName)
                     .font(.headline)
                     .foregroundColor(.primary)
                     .padding(.leading)
@@ -45,7 +46,7 @@ struct NotificationView: View {
                     Spacer()
                     
                     // Date and time in bottom left corner
-                    Text(formattedDate(date))
+                    Text(formattedDate(Date()))//hard coded for now
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                         .padding(.leading)
@@ -72,13 +73,8 @@ struct NotificationView: View {
 
     struct NotificationView_Previews: PreviewProvider {
         static var previews: some View {
-            NotificationView(title: "New Notification", date: Date(), bellAction: {})
+            let testAssigment = shared.Assignment(assName: "Name", assDescription: "Curr Desccription", assChat: shared.ChatRepo(messages: ["hello1"]))
+            
+            NotificationView(assignment: testAssigment, bellAction: {})
         }
-    }
-
-    struct Notification: Identifiable {
-        var id = UUID()
-        var title: String
-        var date: Date
-        var course: String
     }

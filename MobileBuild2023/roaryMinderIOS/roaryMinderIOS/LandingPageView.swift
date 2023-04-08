@@ -46,8 +46,9 @@ struct LandingPageView: View {
                             .padding(.bottom, 8)
                         
                         ClassListComponent(classes: Test().test.filter { classItem in
-                            searchText.isEmpty || classItem.title.localizedCaseInsensitiveContains(searchText)
-                        },isHomePage: isHomePage)
+                            searchText.isEmpty || classItem.className.localizedCaseInsensitiveContains(searchText)
+                        }, isHomePage: isHomePage)
+
                         //Class Creation View Page
                         NavigationLink(destination: ClassCreationView()) {
                                                    HStack {
