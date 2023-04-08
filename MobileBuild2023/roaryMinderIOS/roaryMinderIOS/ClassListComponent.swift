@@ -6,28 +6,57 @@ struct ClassListComponent: View {
 
     var body: some View {
         ScrollView {
+//            LazyVStack {
+//                ForEach(classes, id: \.className) { classItem in
+//                    let isHomePage = Bool.random()//random for now...
+//                    if isHomePage {
+//                        NavigationLink(destination: NotificationListView(notifications:Test().test2)) {
+//                            ClassComponent(
+//                                classTitle: classItem.className,
+//                                classDescription: classItem.classDescription,
+//                                classImage: Image("sample"),
+//                                isHomePage: isHomePage
+//                            )
+//                            .padding(.vertical, 10)
+//                        }
+//                    } else {
+//                        NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
+//                            ClassComponent(
+//                                classTitle: classItem.className,
+//                                classDescription: classItem.classDescription,
+//                                classImage: Image("sample"),
+//                                isHomePage: isHomePage
+//                            )
+//                            .padding(.vertical, 10)
+//                        }
+//                    }
+//                }
+//            }
             LazyVStack {
                 ForEach(classes, id: \.className) { classItem in
-                    let isHomePage = Bool.random()//random for now...
-                    if isHomePage {
-                        NavigationLink(destination: NotificationListView(notifications:Test().test2)) {
-                            ClassComponent(
-                                classTitle: classItem.className,
-                                classDescription: classItem.classDescription,
-                                classImage: Image("sample"),
-                                isHomePage: isHomePage
-                            )
-                            .padding(.vertical, 10)
-                        }
-                    } else {
-                        NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
-                            ClassComponent(
-                                classTitle: classItem.className,
-                                classDescription: classItem.classDescription,
-                                classImage: Image("sample"),
-                                isHomePage: isHomePage
-                            )
-                            .padding(.vertical, 10)
+                    let isHomePage = Bool.random() //random for now...
+
+                    Group {
+                        if isHomePage {
+                            NavigationLink(destination: NotificationListView(assignments: Test().test2)) {
+                                ClassComponent(
+                                    classTitle: classItem.className,
+                                    classDescription: classItem.classDescription,
+                                    classImage: Image("sample"),
+                                    isHomePage: isHomePage
+                                )
+                                .padding(.vertical, 10)
+                            }
+                        } else {
+                            NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
+                                ClassComponent(
+                                    classTitle: classItem.className,
+                                    classDescription: classItem.classDescription,
+                                    classImage: Image("sample"),
+                                    isHomePage: isHomePage
+                                )
+                                .padding(.vertical, 10)
+                            }
                         }
                     }
                 }

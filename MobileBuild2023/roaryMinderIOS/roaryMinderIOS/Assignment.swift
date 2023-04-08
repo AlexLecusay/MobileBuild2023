@@ -6,7 +6,14 @@
 //  Copyright © 2023 orgName. All rights reserved.
 //
 
-import Foundation
+import shared
+
+extension shared.Assignment: Identifiable {
+    public var id: UUID {
+        return UUID()
+    }
+}
+
 
 struct Assignment: Identifiable {
     var id = UUID()

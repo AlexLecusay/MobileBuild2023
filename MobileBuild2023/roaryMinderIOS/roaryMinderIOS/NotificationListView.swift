@@ -7,16 +7,16 @@
 //
 
 import SwiftUI
-
+import shared
 struct NotificationListView: View {
-    var notifications: [Assignment]
+    var assignments: [shared.Assignment]
     
     var body: some View {
             ScrollView {
                 VStack(spacing: 20) {
-                    ForEach(notifications) { notification in
-                        NavigationLink(destination: ChatView(notification: notification)) {
-                            NotificationView(title: notification.title, date: notification.date) {
+                    ForEach(assignments) { assignment in
+                        NavigationLink(destination: ChatView(assignment:assignment)) {
+                            NotificationView(assignment: assignment) {
                                 // Bell button action here
                                 print("Bell button tapped")
                             }
@@ -41,14 +41,13 @@ struct NotificationListView: View {
 struct NotificationListView_Previews: PreviewProvider {
     static var previews: some View {
         let messages = ["Hello!", "How are you?"]
-        let chatRepo = ChatRepo(messages: messages)
-
+        let messagesArray = NSMutableArray(array: messages)
+        let chatRepo = shared.ChatRepo(messages: messagesArray)
         let assignments = [
-            Assignment(title: "Homework Assignment", description: "Complete exercises 1-5", date: Date(), course: "Mathematics", chats: chatRepo),
-            Assignment(title: "Lab Report", description: "Write a report on the experiment", date: Date(), course: "Chemistry", chats: chatRepo),
-            Assignment(title: "Essay", description: "Write a 3-page essay on the topic", date: Date(), course: "English", chats: chatRepo)
+            shared.Assignment(assName: "String", assDescription: "String", assChat: chatRepo),
+            shared.Assignment(assName: "String2", assDescription: "String2", assChat: chatRepo)
         ]
 
-        NotificationListView(notifications: assignments)
+        NotificationListView(assignments: assignments)
     }
 }
