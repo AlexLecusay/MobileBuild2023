@@ -7,13 +7,13 @@
 //
 
 import SwiftUI
-
+import shared
 struct ClassDetailsView: View {
-    let classItem: Class
+    let classItem: shared.Class
     
     var body: some View {
         VStack {
-            Text(classItem.title)
+            Text(classItem.className)
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.bottom, 8)
@@ -28,7 +28,7 @@ struct ClassDetailsView: View {
 
 struct ClassDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        let classItem = Class(title: "Class Title", description: "Class Description", isHomePage: true)
+        let classItem = shared.Class(className: "History", classDescription: "Description", classAssignments: [])
         
         NavigationView {
             ClassDetailsView(classItem: classItem)

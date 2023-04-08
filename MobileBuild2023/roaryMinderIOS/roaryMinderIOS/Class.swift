@@ -7,38 +7,44 @@
 //
 
 import Foundation
+import shared
+//struct Class {
+//    let title: String
+//    let description: String
+//    let assignments: [Assignment]
+//    let isHomePage: Bool
+//
+//    init(title: String, description: String, isHomePage: Bool, assignments: [Assignment] = []) {
+//        self.title = title
+//        self.description = description
+//        self.isHomePage = isHomePage
+//        self.assignments = assignments
+//    }
+//}
 
-struct Class {
-    let title: String
-    let description: String
-    let isHomePage: Bool
+func getClassesFromDB() -> [shared.Class] {
+    let response = RoaryViewModel().loadClasses()
+    return response
 }
+
+
+
+
+
+
 
 struct Test {
-    let test = [
-        Class(title: "Introduction to Psychology", description: "Learn about the scientific study of behavior and mental processes in this introductory psychology course.", isHomePage: true),
-        Class(title: "Calculus I", description: "Explore limits, derivatives, integrals, and their applications in this calculus course.", isHomePage: false),
-        Class(title: "Organic Chemistry", description: "Study the structure, properties, and reactions of organic compounds in this advanced chemistry course.", isHomePage: false),
-        Class(title: "Art History", description: "Discover the history of art from ancient times to the present day in this comprehensive art history course.", isHomePage: true),
-        Class(title: "Introduction to Programming", description: "Learn the fundamentals of computer programming and problem solving in this introductory programming course.", isHomePage: true),
-        Class(title: "Statistics", description: "Study statistical methods and data analysis in this course on probability and statistics.", isHomePage: false),
-        Class(title: "Environmental Science", description: "Explore environmental problems and solutions in this interdisciplinary course on the environment.", isHomePage: false),
-        Class(title: "Introduction to Philosophy", description: "Examine fundamental philosophical questions and ideas in this introductory philosophy course.", isHomePage: false),
-        Class(title: "World History", description: "Explore the history of the world from ancient times to the present day in this comprehensive history course.", isHomePage: true),
-        Class(title: "Spanish I", description: "Learn the fundamentals of the Spanish language in this introductory Spanish course.", isHomePage: false),
-        Class(title: "Molecular Biology", description: "Study the molecular basis of biological activity in this advanced biology course.", isHomePage: false),
-        Class(title: "Literary Analysis", description: "Develop critical reading and analytical skills in this course on literary analysis and interpretation.", isHomePage: false),
-        Class(title: "Digital Marketing", description: "Learn how to market products and services online in this course on digital marketing.", isHomePage: true),
-        Class(title: "American Government", description: "Explore the structure and functions of the American government in this course on American government and politics.", isHomePage: false),
-        Class(title: "Introduction to Astronomy", description: "Discover the wonders of the universe in this introductory astronomy course.", isHomePage: false),
-        Class(title: "Introduction to Sociology", description: "Examine the social forces that shape human behavior and society in this introductory sociology course.", isHomePage: false),
-        Class(title: "Creative Writing", description: "Develop your creative writing skills in this course on fiction, poetry, and creative nonfiction writing.", isHomePage: true)
+    static let psychologyAssignments = [
+        Assignment(title: "Research Paper", description: "Write a 10-page research paper on a topic of your choice in psychology.", date: Date().addingTimeInterval(86400), course: "Introduction to Psychology", chats: ChatRepo(messages: ["Hi, can you help me with my paper?"])),
+        Assignment(title: "Exam 1", description: "Take the first exam covering chapters 1-3 of the textbook.", date: Date().addingTimeInterval(172800), course: "Introduction to Psychology", chats: ChatRepo(messages: ["Do you know if the exam is multiple choice or essay?"]))
     ]
-    
+
+    var test = getClassesFromDB()
+
     let test2 = [
-        Assignment(title: "New Notification", description:"test" , date: Date(), course: "Introduction to Psychology", chats: ChatRepo(messages: ["message1","message2"]))
+        Assignment(title: "New Notification", description: "test", date: Date(), course: "Introduction to Psychology", chats: ChatRepo(messages: ["message1","message2"]))
     ]
-
-
+    let test3 = getClassesFromDB()
 }
+
 

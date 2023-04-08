@@ -44,7 +44,7 @@ class RoaryViewModel: KMMViewModel() {
                 )
             ),
             Class(
-                className = "History 101",
+                className = "History 202",
                 classDescription = "Learn about ancient civilizations and their impact on modern society.",
                 classAssignments = mutableListOf(
                     Assignment(
@@ -55,7 +55,7 @@ class RoaryViewModel: KMMViewModel() {
                 )
             ),
             Class(
-                className = "History 101",
+                className = "History 105",
                 classDescription = "Learn about ancient civilizations and their impact on modern society.",
                 classAssignments = mutableListOf(
                     Assignment(
@@ -66,7 +66,7 @@ class RoaryViewModel: KMMViewModel() {
                 )
             ),
             Class(
-                className = "History 101",
+                className = "History 104",
                 classDescription = "Learn about ancient civilizations and their impact on modern society.",
                 classAssignments = mutableListOf(
                     Assignment(
