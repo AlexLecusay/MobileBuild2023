@@ -75,10 +75,3 @@ struct NotificationView: View {
             NotificationView(title: "New Notification", date: Date(), bellAction: {})
         }
     }
-
-    struct Notification: Identifiable {
-        var id = UUID()
-        var title: String
-        var date: Date
-        var course: String
-    }

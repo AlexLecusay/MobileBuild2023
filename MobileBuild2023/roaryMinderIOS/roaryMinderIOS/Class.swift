@@ -36,13 +36,7 @@ struct Test {
     ]
     
     let test2 = [
-        Notification(title: "New Notification", date: Date(), course: "Introduction to Psychology"),
-                   Notification(title: "Reminder", date: Date().addingTimeInterval(3600), course: "Introduction to Psychology"),
-                   Notification(title: "Alert", date: Date().addingTimeInterval(7200), course: "Introduction to Psychology"),
-                   Notification(title: "Urgent Message", date: Date().addingTimeInterval(10800), course: "Introduction to Psychology"),
-                   Notification(title: "Hello World", date: Date().addingTimeInterval(14400), course: "Introduction to Psychology"),
-                   Notification(title: "SwiftUI Rocks!", date: Date().addingTimeInterval(18000), course: "Introduction to Psychology"),
-                   Notification(title: "Awesome App", date: Date().addingTimeInterval(21600), course: "Introduction to Psychology")
+        Assignment(title: "New Notification", description:"test" , date: Date(), course: "Introduction to Psychology", chats: ChatRepo(messages: ["message1","message2"]))
     ]
 
 

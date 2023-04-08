@@ -11,7 +11,7 @@ import SwiftUI
 struct ChatView: View {
     @State private var messageText = ""
     @State var messages: [String] = []
-    var notification: Notification
+    var notification: Assignment
 
     
     
@@ -112,13 +112,14 @@ struct ChatView: View {
     }
 
 
-    struct ChatView_Previews: PreviewProvider {
-        static var previews: some View {
-            ChatView(
-                notification: Notification(title: "Homework 1", date: Date().addingTimeInterval(25200),course: "Course Name")
+struct ChatView_Previews: PreviewProvider {
+    static var previews: some View {
+        let messages = ["Hello!", "How are you?"]
+        let chatRepo = ChatRepo(messages: messages)
 
-            )
-           
+        let assignment = Assignment(title: "Homework 1", description: "Complete exercises 1-5", date: Date().addingTimeInterval(25200), course: "Course Name", chats: chatRepo)
 
+        ChatView(notification: assignment)
     }
 }
+
