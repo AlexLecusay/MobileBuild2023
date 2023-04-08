@@ -37,6 +37,9 @@ kotlin {
                 implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.1")
                 implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
                 implementation("io.realm.kotlin:library-sync:1.4.0")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4") // Add to use coroutines with the SDK
+                implementation("io.realm.kotlin:library-base:1.7.0") // Add to only use the local database
+                implementation("io.realm.kotlin:library-sync:1.7.0") // Add to use Device Sync
             }
         }
         val commonTest by getting {
