@@ -28,6 +28,19 @@ func getClassesFromDB() -> [shared.Class] {
 }
 
 
+func convertToList(_ mutableList: NSMutableArray) -> [shared.Assignment] {
+    var assignments: [shared.Assignment] = []
+    
+    for item in mutableList {
+        if let assignment = item as? shared.Assignment {
+            assignments.append(assignment)
+        } else {
+            print("Error: Unable to cast item as shared.Assignment: \(item)")
+        }
+    }
+    
+    return assignments
+}
 
 
 

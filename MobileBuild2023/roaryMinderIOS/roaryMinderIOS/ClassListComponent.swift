@@ -37,8 +37,10 @@ struct ClassListComponent: View {
                     let isHomePage = Bool.random() //random for now...
 
                     Group {
+                        var assignments = convertToList(classItem.classAssignments)
+
                         if isHomePage {
-                            NavigationLink(destination: NotificationListView(assignments: Test().test2)) {
+                            NavigationLink(destination: NotificationListView(assignments: assignments)) {
                                 ClassComponent(
                                     classTitle: classItem.className,
                                     classDescription: classItem.classDescription,
@@ -47,7 +49,8 @@ struct ClassListComponent: View {
                                 )
                                 .padding(.vertical, 10)
                             }
-                        } else {
+                        }
+ else {
                             NavigationLink(destination: ClassDetailsView(classItem: classItem)) {
                                 ClassComponent(
                                     classTitle: classItem.className,

@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
-struct ChatRepo{
-    let messages: [String]
-}
+//
+//struct ChatRepo{
+//    let messages: [String]
+//}
