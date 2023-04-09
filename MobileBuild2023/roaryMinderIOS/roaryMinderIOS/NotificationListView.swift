@@ -9,31 +9,31 @@
 import SwiftUI
 import shared
 struct NotificationListView: View {
-    var assignments: [shared.Assignment]
+    @State var assignments: [shared.Assignment]
     
     var body: some View {
-            ScrollView {
-                VStack(spacing: 20) {
-                    ForEach(assignments) { assignment in
-                        NavigationLink(destination: ChatView(assignment:assignment)) {
-                            NotificationView(assignment: assignment) {
-                                // Bell button action here
-                                print("Bell button tapped")
-                            }
+        ScrollView {
+            VStack(spacing: 20) {
+                ForEach(assignments) { assignment in
+                    NavigationLink(destination: ChatView(assignment: assignment)) {
+                        NotificationView(assignment: assignment) {
+                            // Bell button action here
+                            print("Bell button tapped")
                         }
                     }
-                    
-                    NavigationLink(destination: AddNotificationView()) {
-                        Text("+ Add New Reminder")
-                            .font(.headline)
-                            .foregroundColor(.blue)
-                            .padding()
-                            .background(Color(UIColor.systemBackground))
-                            .cornerRadius(10)
-                            .shadow(color: Color.gray.opacity(0.3), radius: 2, x: 0, y: 2)
-                    }
                 }
-                .padding(.vertical, 20)
+                
+                NavigationLink(destination: AddNotificationView(assignments: $assignments)) {
+                    Text("+ Add New Reminder")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                        .padding()
+                        .background(Color(UIColor.systemBackground))
+                        .cornerRadius(10)
+                        .shadow(color: Color.gray.opacity(0.3), radius: 2, x: 0, y: 2)
+                }
+            }
+            .padding(.vertical, 20)
         }
     }
 }
