@@ -1,27 +1,41 @@
-package com.example.roaryminder.android
+package com.example.roaryminder.android.ui.HomeScreen
 
+import android.annotation.SuppressLint
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
+
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import com.example.roaryminder.RoaryViewModel
+import com.example.roaryminder.android.R
+import com.example.roaryminder.android.navigation.Screens
 
 @Composable
 fun ClassCardList(
+    navController: NavController,
     classes: List<com.example.roaryminder.repo.Class>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier) {
         items(classes){
                 currClass ->
-            ClassCardComponent(currentClass = currClass)
+            ClassCardComponent(currentClass = currClass){ name ->
+                navController.navigate(Screens.TopicScreen.name+"/$name")
+            }
         }
     }
 }
@@ -29,18 +43,26 @@ fun ClassCardList(
 @Composable
 fun ClassCardComponent(
     currentClass: com.example.roaryminder.repo.Class,
-    modifier: Modifier =Modifier
+    modifier: Modifier = Modifier,
+    onItemClick: (String) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .clickable { onItemClick(currentClass.className) },
         shape = RoundedCornerShape(10.dp),
         elevation = 5.dp,
-        onClick = {}
     ) {
         Column {
-
+            Image(
+                painter = painterResource(id = R.drawable.sample),
+                contentDescription = null,
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .height(120.dp)
+                    .fillMaxWidth()
+            )
             Text(
                 text = currentClass.className,
                 style = MaterialTheme.typography.h6,
@@ -77,4 +99,30 @@ fun ClassCardComponent(
             }
         }
     }
+}
+
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Composable
+fun HomeScreen (navController: NavController, viewModel: RoaryViewModel){
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                backgroundColor = MaterialTheme.colors.primary,
+                elevation = 5.dp
+            ) {
+                Text(text = "Home")
+            }
+        }
+    ){
+        ClassCardList(navController = navController, viewModel.loadClasses())
+
+    }
+    
+}
+
+
+@Preview
+@Composable
+fun HomeScreenPreview(){
 }
