@@ -1,3 +1,5 @@
 package com.example.roaryminder.repo
 
-data class ChatRepo(val messages: MutableList<String>)
+import io.realm.kotlin.types.RealmList
+
+data class ChatRepo(val messages: RealmList<String>)
