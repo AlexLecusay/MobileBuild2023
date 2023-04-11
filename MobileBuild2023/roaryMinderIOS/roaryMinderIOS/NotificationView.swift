@@ -9,72 +9,63 @@
 
 import SwiftUI
 import shared
-struct NotificationView: View {
-    var assignment: shared.Assignment
-//    var title: String
-//    var date: Date
-    @State var isBellFilled = false // add state variable to track bell icon fill state
-    var bellAction: () -> Void // Add a closure to handle the bell button action
-    
-    var body: some View {
-        ZStack {
-            HStack {
-                // Title in top left corner
-                Text(assignment.assName)
-                    .font(.headline)
-                    .foregroundColor(.primary)
-                    .padding(.leading)
-                    .padding(.bottom, 40) // add padding between title and HStack bottom
-                
-                Spacer()
-                
-                // Bell icon in top right corner
-                Button(action: {
-                    isBellFilled.toggle() // toggle the state of isBellFilled
-                    bellAction() // Call the closure when the bell button is tapped
-                }) {
-                    Image(systemName: isBellFilled ? "bell.fill" : "bell") // use conditional to change the icon based on the state
-                        .foregroundColor(isBellFilled ? .red : .blue) // use conditional to change the color based on the state
-                        .padding(.trailing)
-                        .padding(.top)
-                }
-                
-            }
-            
-            .overlay(
-                VStack {
-                    Spacer()
-                    
-                    // Date and time in bottom left corner
-                    Text(formattedDate(Date()))//hard coded for now
+    struct NotificationView: View {
+        var assignment: shared.Assignment
+        @State var isBellFilled = false
+        var bellAction: () -> Void
+        
+        var body: some View {
+            ZStack {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(assignment.assName)
+                        .font(.subheadline)
+                        .bold()
+                        .foregroundColor(.primary)
+                   
+                    Text(formattedDate(Date()))
                         .font(.subheadline)
                         .foregroundColor(.secondary)
-                        .padding(.leading)
-                        .padding(.top)
-                },
-                alignment: .bottomLeading
+                    
+                    Text(assignment.assDescription)
+                        .font(.subheadline)
+                        .foregroundColor(.primary)
+                    
+                    
+                    
+                    Spacer()
+                }
+                .padding()
                 
-            )
-            .padding(10)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        isBellFilled.toggle()
+                        bellAction()
+                    }) {
+                        Image(systemName: isBellFilled ? "bell.fill" : "bell")
+                            .foregroundColor(isBellFilled ? .red : .blue)
+                            .padding(.trailing)
+                            .padding(.top)
+                    }
+                }
+            }
             .background(Color(UIColor.systemBackground))
             .cornerRadius(10)
             .shadow(color: Color.gray.opacity(0.1), radius: 1, x: 0, y: 1)
         }
     }
 
-    }
 
-
-    private func formattedDate(_ date: Date) -> String {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy hh:mma"
-        return formatter.string(from: date)
-    }
-
-    struct NotificationView_Previews: PreviewProvider {
-        static var previews: some View {
-            let testAssigment = shared.Assignment(assName: "Name", assDescription: "Curr Desccription", assChat: shared.ChatRepo(messages: ["hello1"]))
-            
-            NotificationView(assignment: testAssigment, bellAction: {})
+        private func formattedDate(_ date: Date) -> String {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yyyy hh:mma"
+            return formatter.string(from: date)
         }
-    }
+
+        struct NotificationView_Previews: PreviewProvider {
+            static var previews: some View {
+                let testAssigment = shared.Assignment(assName: "Name", assDescription: "Curr Desccription", assChat: shared.ChatRepo(messages: ["hello1"]))
+                
+                NotificationView(assignment: testAssigment, bellAction: {})
+            }
+        }
