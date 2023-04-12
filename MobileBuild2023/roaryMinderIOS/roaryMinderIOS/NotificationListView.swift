@@ -9,7 +9,7 @@
 import SwiftUI
 import shared
 struct NotificationListView: View {
-    @State var assignments: [shared.Assignment]
+    @State var assignments: [Assignments]
     
     var body: some View {
         ScrollView {
@@ -42,10 +42,9 @@ struct NotificationListView_Previews: PreviewProvider {
     static var previews: some View {
         let messages = ["Hello!", "How are you?"]
         let messagesArray = NSMutableArray(array: messages)
-        let chatRepo = shared.ChatRepo(messages: messagesArray)
+        let chatRepo = ChatRepos()
         let assignments = [
-            shared.Assignment(assName: "String", assDescription: "String", assChat: chatRepo),
-            shared.Assignment(assName: "String2", assDescription: "String2", assChat: chatRepo)
+            Assignments()
         ]
 
         NotificationListView(assignments: assignments)

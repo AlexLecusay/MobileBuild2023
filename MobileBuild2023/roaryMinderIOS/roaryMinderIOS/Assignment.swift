@@ -9,17 +9,18 @@
 import shared
 import SwiftUI
 
-extension shared.Assignment: Identifiable {
+extension Assignments: Identifiable {
     public var id: UUID {
         return UUID()
     }
     
 }
 
-func addAssignment(assignmentName: String, assignmentDescription: String, assignments: Binding<[shared.Assignment]>) {
-        let chatRepo = shared.ChatRepo(messages: [])
-        let newAssignment = shared.Assignment(assName: assignmentName, assDescription: assignmentDescription, assChat: chatRepo)
-        assignments.wrappedValue.append(newAssignment)
+func addAssignment(assignmentName: String, assignmentDescription: String, assignments: Binding<[Assignments]>) {
+        let chatRepo = ChatRepos()
+        chatRepo.messages = []
+//        let newAssignment = assignments(assName: assignmentName, assDescription: assignmentDescription, assChat: chatRepo)
+//        assignments.wrappedValue.append(newAssignment)
     }
 
 //func addAssignment(message: String) -> String{

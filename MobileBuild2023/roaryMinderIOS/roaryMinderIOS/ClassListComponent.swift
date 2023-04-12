@@ -1,7 +1,7 @@
 import SwiftUI
 import shared
 struct ClassListComponent: View {
-    let classes: [shared.Class]
+    let classes: [RoaryRepoInfo]
     let isHomePage: Bool
 
     var body: some View {
@@ -97,8 +97,9 @@ struct ClassListComponent: View {
 struct ClassListComponent_Previews: PreviewProvider {
     static var previews: some View {
         let classes = [
-            shared.Class(className: "History 101", classDescription: "Learn about ancient civilizations and their impact on modern society.", classAssignments: []),
-            shared.Class(className: "Math 202", classDescription: "Advanced calculus and mathematical analysis.", classAssignments: [])
+//            RoaryRepoInfo(className: "History 101", classDescription: "Learn about ancient civilizations and their impact on modern society.", classAssignments: []),
+//            RoaryRepoInfo(className: "Math 202", classDescription: "Advanced calculus and mathematical analysis.", classAssignments: [])
+            RoaryRepoInfo()
         ]
 
         NavigationView {

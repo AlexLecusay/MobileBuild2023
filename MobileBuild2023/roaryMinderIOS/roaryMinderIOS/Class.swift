@@ -22,21 +22,25 @@ import shared
 //    }
 //}
 
-func getClassesFromDB() -> [shared.Class] {
+func getClassesFromDB() -> [RoaryRepoInfo] {
     let response = RoaryViewModel().loadClasses()
     return response
 }
 
 
-func convertToList(_ mutableList: NSMutableArray) -> [shared.Assignment] {
-    var assignments: [shared.Assignment] = []
+func convertToList(_ mutableList: NSMutableArray?) -> [Assignments] {
+    var assignments: [Assignments] = []
     
-    for item in mutableList {
-        if let assignment = item as? shared.Assignment {
-            assignments.append(assignment)
-        } else {
-            print("Error: Unable to cast item as shared.Assignment: \(item)")
+    if let unwrappedList = mutableList {
+        for item in unwrappedList {
+            if let assignment = item as? Assignments {
+                assignments.append(assignment)
+            } else {
+                print("Error: Unable to cast item as shared.Assignment: \(item)")
+            }
         }
+    } else {
+        print("Error: mutableList is nil")
     }
     
     return assignments
@@ -46,20 +50,21 @@ func convertToList(_ mutableList: NSMutableArray) -> [shared.Assignment] {
 
 
 
+
 struct Test {
     var test = getClassesFromDB()
-    let chatRepo = shared.ChatRepo(messages: NSMutableArray(array: []))
-    
-    func createTestAssignments() -> [shared.Assignment] {
-        return [
-            shared.Assignment(assName: "String", assDescription: "String", assChat: chatRepo),
-            shared.Assignment(assName: "String2", assDescription: "String2", assChat: chatRepo)
-        ]
-    }
-    
-    var test2: [shared.Assignment] {
-        createTestAssignments()
-    }
+//    let chatRepo = ChatRepos(messages: NSMutableArray(array: []))
+//
+//    func createTestAssignments() -> [Assignments] {
+//        return [
+//            Assignments(assName: "String", assDescription: "String", assChat: chatRepo),
+//            Assignments(assName: "String2", assDescription: "String2", assChat: chatRepo)
+//        ]
+//    }
+//
+//    var test2: [Assignments] {
+//        createTestAssignments()
+//    }
 
     let test3 = getClassesFromDB()
 }
