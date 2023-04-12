@@ -68,19 +68,3 @@ fun TopicCardComponent(
         }
     }
 }
-
-
-@RequiresApi(Build.VERSION_CODES.O)
-@Composable
-fun TopicCardList() {
-    LazyColumn(modifier = Modifier.fillMaxSize()) {
-        repeat(15) {
-            item {
-                TopicCardComponent(
-                    notificationTitle = "Test 1",
-                    dueDate = LocalDateTime.of(2023, 3, 30, 14, 30)
-                )
-            }
-        }
-    }
-}

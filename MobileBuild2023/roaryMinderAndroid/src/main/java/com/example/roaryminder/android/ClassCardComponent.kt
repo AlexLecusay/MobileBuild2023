@@ -6,7 +6,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -66,13 +66,12 @@ fun ClassCardComponent(
 
                 if (true)
                     Icon(
-                        imageVector = Icons.Default.AddCircle,
+                        imageVector = Icons.Default.ArrowForward,
                         contentDescription = "add",
                         tint = Color.Blue,
                         modifier = Modifier
                             .padding(end = 16.dp, bottom = 8.dp)
                             .fillMaxWidth()
-
                     )
             }
         }

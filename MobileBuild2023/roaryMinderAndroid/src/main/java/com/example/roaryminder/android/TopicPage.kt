@@ -27,11 +27,3 @@ fun TopicPage(
         bottomBar = { BottomAppBar(backgroundColor = MaterialTheme.colors.primary) { Text("Bottom App Bar") } }
     )
 }
-
-//preview
-@RequiresApi(Build.VERSION_CODES.O)
-@Preview
-@Composable
-fun TopicPagePreview(){
-    TopicPage(viewModel = RoaryViewModel())
-}

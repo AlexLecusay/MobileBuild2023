@@ -6,7 +6,7 @@ plugins {
 dependencies {
     implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
     implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.1")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-Beta")
     implementation("io.realm.kotlin:library-base:1.7.0")
     implementation("io.realm.kotlin:library-sync:1.7.0")
 }
@@ -36,7 +36,7 @@ kotlin {
                 implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
                 implementation("androidx.lifecycle:lifecycle-viewmodel:2.6.1")
                 implementation("io.realm.kotlin:library-sync:1.7.0")
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
+                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.0-Beta")
                 implementation("io.realm.kotlin:library-base:1.7.0")
                 implementation("io.realm.kotlin:library-sync:1.7.0")// Add to use coroutines with the SDK
             }

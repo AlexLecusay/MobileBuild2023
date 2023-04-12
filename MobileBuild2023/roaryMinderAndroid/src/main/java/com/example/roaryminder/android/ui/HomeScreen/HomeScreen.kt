@@ -112,7 +112,7 @@ fun HomeScreen (navController: NavController, viewModel: RoaryViewModel){
             }
         }
     ){
-        ClassCardList(navController = navController, viewModel.loadClasses())
+        ClassCardList(navController = navController, viewModel.roaryMinderQueries.value)
 
     }
     

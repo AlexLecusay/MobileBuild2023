@@ -3,7 +3,6 @@ package com.example.roaryminder.repo
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
-import io.realm.kotlin.ext.realmListOf
 import io.realm.kotlin.log.LogLevel
 import io.realm.kotlin.mongodb.App
 import io.realm.kotlin.mongodb.AppConfiguration
@@ -50,32 +49,15 @@ class RoaryRepo {
         if (!this::realm.isInitialized) {
             setupRealmSync()
         }
-        realm.write { deleteAll() }
-        var testClass = RoaryRepoInfo().apply {
-            className = "Testclass"
-            classDescription = "Test description"
-            classAssignments = realmListOf(
-                Assignments().apply {
-                    assignmentName = "Homework for 101"
-                    assignmentDescription = "This is the second homework"
-                    chatRepo =
-                        ChatRepos().apply {
-                            messages = realmListOf("Message one", "Message two")
-                        }
-                }
-            )
-        }
-        saveInfo(testClass)
+        //realm.write { deleteAll() }
     }
 
-//    suspend fun getAllData(): Flow<List<RoaryRepoInfo>> {
-//        if (!this::realm.isInitialized) {
-//            setupRealmSync()
-//        }
-//        return realm.query<RoaryRepoInfo>().asFlow().map { it ->
-//            it.list.map { it.className }
-//        }.flowOn(Dispatchers.Default)
-//    }
+    suspend fun getAllData(): Flow<List<RoaryRepoInfo>> {
+        if (!this::realm.isInitialized) {
+            setupRealmSync()
+        }
+        return realm.query<RoaryRepoInfo>().asFlow().map { it.list }
+    }
 
     suspend fun saveInfo(classForRepo: RoaryRepoInfo) {
         if (!this::realm.isInitialized) {

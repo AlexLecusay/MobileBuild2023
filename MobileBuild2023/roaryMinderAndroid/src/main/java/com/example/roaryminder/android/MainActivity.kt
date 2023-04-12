@@ -23,19 +23,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    RoaryNavigation(viewModel = RoaryViewModel())
+                    val viewModel = RoaryViewModel()
+                    RoaryNavigation(viewModel = viewModel)
                 }
             }
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    MyApplicationTheme {
-        Surface(color = MaterialTheme.colors.background) {
-            RoaryNavigation(viewModel = RoaryViewModel())
         }
     }
 }

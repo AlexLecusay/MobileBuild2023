@@ -4,37 +4,54 @@ import com.example.roaryminder.repo.*
 import com.rickclephas.kmm.viewmodel.KMMViewModel
 import com.rickclephas.kmm.viewmodel.coroutineScope
 import io.realm.kotlin.ext.realmListOf
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.MutableStateFlow
 
 class RoaryViewModel: KMMViewModel() {
 
     val projectTitle = "Roaryminder"
     private val repo = RoaryRepo()
 
-    lateinit var queries: Flow<List<String>>
+    var roaryMinderQueries: MutableStateFlow<List<RoaryRepoInfo>> = MutableStateFlow(listOf(RoaryRepoInfo()))
 
     init {
         viewModelScope.coroutineScope.launch {
             repo.startSync()
 
-//            var testClass = RoaryRepoInfo().apply {
-//                className = "Testclass"
-//                classDescription = "Test description"
-//                classAssignments = realmListOf(
-//                    Assignments().apply {
-//                    assignmentName = "Homework for 101"
-//                    assignmentDescription = "This is the second homework"
-//                    chatRepo =
-//                        ChatRepos().apply {
-//                        messages = realmListOf("Message one", "Message two")
-//                        }
-//                    }
-//                )
-//            }
-//            saveQuery(testClass)
-            //queries = repo.getAllData()
-            //print("THE QUERIES ARE: $queries")
+            val testClass = RoaryRepoInfo().apply {
+                className = "Testclass"
+                classDescription = "Test description"
+                classAssignments = realmListOf(
+                    Assignments().apply {
+                    assignmentName = "Homework for 101"
+                    assignmentDescription = "This is the second homework"
+                    chatRepo =
+                        ChatRepos().apply {
+                        messages = realmListOf("Message one", "Message two")
+                        }
+                    }
+                )
+            }
+            saveQuery(testClass)
+            val testClass2 = RoaryRepoInfo().apply {
+                className = "BLAH BLAH"
+                classDescription = "Test description BLAH"
+                classAssignments = realmListOf(
+                    Assignments().apply {
+                        assignmentName = "Homework for BLAH"
+                        assignmentDescription = "This is the second homework"
+                        chatRepo =
+                            ChatRepos().apply {
+                                messages = realmListOf("Message one", "Message two")
+                            }
+                    }
+                )
+            }
+            saveQuery(testClass2)
+            roaryMinderQueries = MutableStateFlow(loadClasses())
+            print("THE QUERIES ARE: $roaryMinderQueries")
+
         }
     }
 
@@ -45,42 +62,10 @@ class RoaryViewModel: KMMViewModel() {
     }
 
     fun loadClasses(): List<RoaryRepoInfo> {
-        return listOf(
-            RoaryRepoInfo().apply {
-                className = "History 101"
-                classDescription = "Learn about ancient civilizations and their impact on modern society."
-                classAssignments = realmListOf(
-                    Assignments().apply {
-                        assignmentName = "Homework for 101"
-                        assignmentDescription = "This is the second homework"
-                        chatRepo = ChatRepos().apply {
-                            messages = realmListOf("Message one", "Message two")
-                        }
-                    })
-            },
-            RoaryRepoInfo().apply {
-                className = "History 102"
-                classDescription = "Learn about ancient civilizations and their impact on modern society."
-                classAssignments = realmListOf(
-                    Assignments().apply {
-                        assignmentName = "Homework for 101"
-                        assignmentDescription = "This is the second homework"
-                        chatRepo = ChatRepos().apply {
-                            messages = realmListOf("Message one", "Message two")
-                        }
-                    })
-            },
-            RoaryRepoInfo().apply {
-                className = "History 103"
-                classDescription = "Learn about ancient civilizations and their impact on modern society."
-                classAssignments = realmListOf(
-                    Assignments().apply {
-                        assignmentName = "Homework for 101"
-                        assignmentDescription = "This is the second homework"
-                        chatRepo = ChatRepos().apply {
-                            messages = realmListOf("Message one", "Message two")
-                        }
-                    })
-            })
+        var roaryRepoList = mutableListOf<RoaryRepoInfo>()
+        viewModelScope.coroutineScope.launch {
+            roaryRepoList = repo.getAllData().toList().last() as MutableList<RoaryRepoInfo>
+        }
+        return roaryRepoList
     }
 }
