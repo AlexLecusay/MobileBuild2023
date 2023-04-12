@@ -3,6 +3,7 @@ package com.example.roaryminder.repo
 import io.realm.kotlin.Realm
 import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
+import io.realm.kotlin.ext.realmListOf
 import io.realm.kotlin.log.LogLevel
 import io.realm.kotlin.mongodb.App
 import io.realm.kotlin.mongodb.AppConfiguration
@@ -26,7 +27,7 @@ class RoaryRepo {
         val flexibleSyncConfig = SyncConfiguration
             .Builder(
             user = user,
-            schema = setOf(RoaryRepoInfo::class)
+            schema = setOf(RoaryRepoInfo::class, Assignments::class, ChatRepos::class),
         ).initialSubscriptions(
             rerunOnOpen = true
         ) { realm ->
@@ -49,6 +50,22 @@ class RoaryRepo {
         if (!this::realm.isInitialized) {
             setupRealmSync()
         }
+        realm.write { deleteAll() }
+        var testClass = RoaryRepoInfo().apply {
+            className = "Testclass"
+            classDescription = "Test description"
+            classAssignments = realmListOf(
+                Assignments().apply {
+                    assignmentName = "Homework for 101"
+                    assignmentDescription = "This is the second homework"
+                    chatRepo =
+                        ChatRepos().apply {
+                            messages = realmListOf("Message one", "Message two")
+                        }
+                }
+            )
+        }
+        saveInfo(testClass)
     }
 
 //    suspend fun getAllData(): Flow<List<RoaryRepoInfo>> {

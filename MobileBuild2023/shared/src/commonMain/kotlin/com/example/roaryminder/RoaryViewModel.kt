@@ -18,15 +18,23 @@ class RoaryViewModel: KMMViewModel() {
         viewModelScope.coroutineScope.launch {
             repo.startSync()
 
-            var testChat = ChatRepos(realmListOf("Message one", "Message two"))
-            var testAssignment = Assignments("Testname", "Testdescription", testChat)
-            var testClass = RoaryRepoInfo().apply {
-                className = "Testclass"
-                classDescription = "Testdescription"
-                classAssignments = realmListOf(testAssignment) }
-            saveQuery(testClass)
+//            var testClass = RoaryRepoInfo().apply {
+//                className = "Testclass"
+//                classDescription = "Test description"
+//                classAssignments = realmListOf(
+//                    Assignments().apply {
+//                    assignmentName = "Homework for 101"
+//                    assignmentDescription = "This is the second homework"
+//                    chatRepo =
+//                        ChatRepos().apply {
+//                        messages = realmListOf("Message one", "Message two")
+//                        }
+//                    }
+//                )
+//            }
+//            saveQuery(testClass)
             //queries = repo.getAllData()
-            print("THE QUERIES ARE: $queries")
+            //print("THE QUERIES ARE: $queries")
         }
     }
 
@@ -36,57 +44,43 @@ class RoaryViewModel: KMMViewModel() {
         }
     }
 
-    fun loadClasses(): List<Class> {
+    fun loadClasses(): List<RoaryRepoInfo> {
         return listOf(
-            Class(
-                className = "History 101",
-                classDescription = "Learn about ancient civilizations and their impact on modern society.",
+            RoaryRepoInfo().apply {
+                className = "History 101"
+                classDescription = "Learn about ancient civilizations and their impact on modern society."
                 classAssignments = realmListOf(
-                    Assignments(
-                        "Homework for 101",
-                        "This is the second homework",
-                        ChatRepos(realmListOf("Message one", "Message two"))
-                    )
-                )
-            ),
-            Class(
-                className = "History 202",
-                classDescription = "Learn about ancient civilizations and their impact on modern society.",
+                    Assignments().apply {
+                        assignmentName = "Homework for 101"
+                        assignmentDescription = "This is the second homework"
+                        chatRepo = ChatRepos().apply {
+                            messages = realmListOf("Message one", "Message two")
+                        }
+                    })
+            },
+            RoaryRepoInfo().apply {
+                className = "History 102"
+                classDescription = "Learn about ancient civilizations and their impact on modern society."
                 classAssignments = realmListOf(
-                    Assignments(
-                        "Homework for 202",
-                        "This is the second homework",
-                        ChatRepos(realmListOf("Message one", "Message two"))
-                    )
-                )
-            ),
-            Class(
-                className = "History 105",
-                classDescription = "Learn about ancient civilizations and their impact on modern society.",
+                    Assignments().apply {
+                        assignmentName = "Homework for 101"
+                        assignmentDescription = "This is the second homework"
+                        chatRepo = ChatRepos().apply {
+                            messages = realmListOf("Message one", "Message two")
+                        }
+                    })
+            },
+            RoaryRepoInfo().apply {
+                className = "History 103"
+                classDescription = "Learn about ancient civilizations and their impact on modern society."
                 classAssignments = realmListOf(
-                    Assignments(
-                        "Homework for 105",
-                        "This is the second homework",
-                        ChatRepos(realmListOf("Message one", "Message two"))
-                    )
-                )
-            ),
-            Class(
-                className = "History 104",
-                classDescription = "Learn about ancient civilizations and their impact on modern society.",
-                classAssignments = realmListOf(
-                    Assignments(
-                        "Homework 104",
-                        "This is the second homework",
-                        ChatRepos(realmListOf("Message one", "Message two"))
-                    ),
-                    Assignments(
-                        "Homework 104",
-                        "This is the second homework",
-                        ChatRepos(realmListOf("Message one", "Message two"))
-                    )
-                )
-            ),
-        )
+                    Assignments().apply {
+                        assignmentName = "Homework for 101"
+                        assignmentDescription = "This is the second homework"
+                        chatRepo = ChatRepos().apply {
+                            messages = realmListOf("Message one", "Message two")
+                        }
+                    })
+            })
     }
 }

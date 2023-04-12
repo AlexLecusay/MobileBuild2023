@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun ClassCardList(
-    classes: List<com.example.roaryminder.repo.Class>,
+    classes: List<com.example.roaryminder.repo.RoaryRepoInfo>,
     modifier: Modifier = Modifier
 ) {
     LazyColumn(modifier = modifier) {
@@ -28,7 +28,7 @@ fun ClassCardList(
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun ClassCardComponent(
-    currentClass: com.example.roaryminder.repo.Class,
+    currentClass: com.example.roaryminder.repo.RoaryRepoInfo,
     modifier: Modifier =Modifier
 ) {
     Card(
