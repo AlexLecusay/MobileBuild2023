@@ -14,7 +14,6 @@ struct ChatView: View {
     var assignment: Assignments
 
     
-    
     var body: some View {
         VStack{
             

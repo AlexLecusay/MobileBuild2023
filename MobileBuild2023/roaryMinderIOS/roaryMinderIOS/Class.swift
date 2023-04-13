@@ -23,8 +23,9 @@ import shared
 //}
 
 func getClassesFromDB() -> [RoaryRepoInfo] {
-    let response = RoaryViewModel().loadClasses()
-    return response
+//    let response = RoaryViewModel().loadClasses()
+    let test = [RoaryRepoInfo]()
+    return test
 }
 
 
