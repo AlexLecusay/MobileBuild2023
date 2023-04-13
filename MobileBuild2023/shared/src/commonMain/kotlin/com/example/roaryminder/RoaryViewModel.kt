@@ -33,6 +33,16 @@ class RoaryViewModel: KMMViewModel() {
                             "This is a bit difficult",
                             "Are you stuck on problem 1?")
                         }
+                    },
+                    Assignments().apply {
+                        assignmentName = "Online Homework 2"
+                        assignmentDescription = "Due 9/2/2021"
+                        chatRepo =
+                            ChatRepos().apply {
+                                messages = realmListOf(
+                                    "This is a bit difficult",
+                                    "Are you stuck on problem 1?")
+                            }
                     }
                 )
             }
@@ -42,8 +52,18 @@ class RoaryViewModel: KMMViewModel() {
                 classDescription = "Lets get this bread"
                 classAssignments = realmListOf(
                     Assignments().apply {
-                        assignmentName = "Online Homework"
+                        assignmentName = "Offline homework"
                         assignmentDescription = "Due 9/1/2021"
+                        chatRepo =
+                            ChatRepos().apply {
+                                messages = realmListOf(
+                                    "This is a bit difficult",
+                                    "Are you stuck on problem 1?")
+                            }
+                    },
+                    Assignments().apply {
+                        assignmentName = "Offline homework 2"
+                        assignmentDescription = "Due 9/2/2021"
                         chatRepo =
                             ChatRepos().apply {
                                 messages = realmListOf(
@@ -61,6 +81,12 @@ class RoaryViewModel: KMMViewModel() {
     fun saveQuery(classForRepo: RoaryRepoInfo) {
         viewModelScope.coroutineScope.launch {
             repo.saveClass(classForRepo)
+        }
+    }
+
+    fun deleteQuery(classForRepo: RoaryRepoInfo) {
+        viewModelScope.coroutineScope.launch {
+            repo.deleteClass(classForRepo._id)
         }
     }
 

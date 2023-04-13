@@ -9,11 +9,8 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,37 +18,63 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.example.roaryminder.RoaryViewModel
 import com.example.roaryminder.android.R
 import com.example.roaryminder.android.navigation.Screens
 import com.example.roaryminder.repo.RoaryRepoInfo
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
+@Composable
+fun HomeScreen(
+    navController: NavController,
+    classes: List<RoaryRepoInfo>
+){
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                backgroundColor = MaterialTheme.colors.primary,
+                elevation = 5.dp
+            ) {
+                Text(text = "Home")
+            }
+        }
+    ){
+        ClassCardList(navController = navController, classes)
+    }
+}
+
 @Composable
 fun ClassCardList(
     navController: NavController,
-    classes: List<com.example.roaryminder.repo.RoaryRepoInfo>,
+    classes: List<RoaryRepoInfo>,
     modifier: Modifier = Modifier
 ) {
+    var count = 0
     LazyColumn(modifier = modifier) {
         items(classes){
                 currClass ->
-            ClassCardComponent(currentClass = currClass){ name ->
+            ClassCardComponent(
+                currentClass = currClass,
+                //classes = classes,
+                index = count++){ name ->
                 navController.navigate(Screens.TopicScreen.name+"/$name")
             }
         }
     }
 }
+
 @Composable
 fun ClassCardComponent(
-    currentClass: com.example.roaryminder.repo.RoaryRepoInfo,
-    modifier: Modifier = Modifier,
+    currentClass: RoaryRepoInfo,
+    index: Int,
     onItemClick: (String) -> Unit
 ) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp)
-            .clickable { onItemClick(currentClass.className) },
+            .clickable { onItemClick(
+                index.toString()
+            ) },
         shape = RoundedCornerShape(10.dp),
         elevation = 5.dp,
     ) {
@@ -99,24 +122,5 @@ fun ClassCardComponent(
                     )
             }
         }
-    }
-}
-
-@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
-@Composable
-fun HomeScreen (navController: NavController, viewModel: RoaryViewModel){
-    val roaryRepoInfoList: List<RoaryRepoInfo> by viewModel.roaryRepoInfoList.collectAsState(emptyList())
-
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                backgroundColor = MaterialTheme.colors.primary,
-                elevation = 5.dp
-            ) {
-                Text(text = "Home")
-            }
-        }
-    ){
-        ClassCardList(navController = navController, roaryRepoInfoList)
     }
 }
