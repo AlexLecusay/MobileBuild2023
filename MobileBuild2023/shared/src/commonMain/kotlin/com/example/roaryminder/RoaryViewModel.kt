@@ -18,62 +18,6 @@ class RoaryViewModel: KMMViewModel() {
     init {
         viewModelScope.coroutineScope.launch {
             repo.startSync()
-            repo.clearDatabase()
-
-            val testClass = RoaryRepoInfo().apply {
-                className = "COP420"
-                classDescription = "Lets get this bread"
-                classAssignments = realmListOf(
-                    Assignments().apply {
-                    assignmentName = "Online Homework"
-                    assignmentDescription = "Due 9/1/2021"
-                    chatRepo =
-                        ChatRepos().apply {
-                        messages = realmListOf(
-                            "This is a bit difficult",
-                            "Are you stuck on problem 1?")
-                        }
-                    },
-                    Assignments().apply {
-                        assignmentName = "Online Homework 2"
-                        assignmentDescription = "Due 9/2/2021"
-                        chatRepo =
-                            ChatRepos().apply {
-                                messages = realmListOf(
-                                    "This is a bit difficult",
-                                    "Are you stuck on problem 1?")
-                            }
-                    }
-                )
-            }
-            saveQuery(testClass)
-            val testClass2 = RoaryRepoInfo().apply {
-                className = "COP6999"
-                classDescription = "Lets get this bread"
-                classAssignments = realmListOf(
-                    Assignments().apply {
-                        assignmentName = "Offline homework"
-                        assignmentDescription = "Due 9/1/2021"
-                        chatRepo =
-                            ChatRepos().apply {
-                                messages = realmListOf(
-                                    "This is a bit difficult",
-                                    "Are you stuck on problem 1?")
-                            }
-                    },
-                    Assignments().apply {
-                        assignmentName = "Offline homework 2"
-                        assignmentDescription = "Due 9/2/2021"
-                        chatRepo =
-                            ChatRepos().apply {
-                                messages = realmListOf(
-                                    "This is a bit difficult",
-                                    "Are you stuck on problem 1?")
-                            }
-                    }
-                )
-            }
-            saveQuery(testClass2)
             loadClasses()
         }
     }
