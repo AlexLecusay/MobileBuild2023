@@ -12,38 +12,42 @@ class RoaryViewModel: KMMViewModel() {
 
     val projectTitle = "Roaryminder"
     private val repo = RoaryRepo()
-
     var roaryMinderQueries: MutableStateFlow<List<RoaryRepoInfo>> = MutableStateFlow(listOf(RoaryRepoInfo()))
 
     init {
         viewModelScope.coroutineScope.launch {
             repo.startSync()
+            repo.clearDatabase()
 
             val testClass = RoaryRepoInfo().apply {
-                className = "Testclass"
-                classDescription = "Test description"
+                className = "COP420"
+                classDescription = "Lets get this bread"
                 classAssignments = realmListOf(
                     Assignments().apply {
-                    assignmentName = "Homework for 101"
-                    assignmentDescription = "This is the second homework"
+                    assignmentName = "Online Homework"
+                    assignmentDescription = "Due 9/1/2021"
                     chatRepo =
                         ChatRepos().apply {
-                        messages = realmListOf("Message one", "Message two")
+                        messages = realmListOf(
+                            "This is a bit difficult",
+                            "Are you stuck on problem 1?")
                         }
                     }
                 )
             }
             saveQuery(testClass)
             val testClass2 = RoaryRepoInfo().apply {
-                className = "BLAH BLAH"
-                classDescription = "Test description BLAH"
+                className = "COP6999"
+                classDescription = "Lets get this bread"
                 classAssignments = realmListOf(
                     Assignments().apply {
-                        assignmentName = "Homework for BLAH"
-                        assignmentDescription = "This is the second homework"
+                        assignmentName = "Online Homework"
+                        assignmentDescription = "Due 9/1/2021"
                         chatRepo =
                             ChatRepos().apply {
-                                messages = realmListOf("Message one", "Message two")
+                                messages = realmListOf(
+                                    "This is a bit difficult",
+                                    "Are you stuck on problem 1?")
                             }
                     }
                 )
@@ -57,7 +61,7 @@ class RoaryViewModel: KMMViewModel() {
 
     fun saveQuery(classForRepo: RoaryRepoInfo) {
         viewModelScope.coroutineScope.launch {
-            repo.saveInfo(classForRepo)
+            repo.saveClass(classForRepo)
         }
     }
 

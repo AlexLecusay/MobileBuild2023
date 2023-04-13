@@ -1,7 +1,6 @@
 package com.example.roaryminder.repo
 
 import io.realm.kotlin.Realm
-import io.realm.kotlin.RealmConfiguration
 import io.realm.kotlin.ext.query
 import io.realm.kotlin.log.LogLevel
 import io.realm.kotlin.mongodb.App
@@ -9,16 +8,18 @@ import io.realm.kotlin.mongodb.AppConfiguration
 import io.realm.kotlin.mongodb.Credentials
 import io.realm.kotlin.mongodb.sync.SyncConfiguration
 import io.realm.kotlin.types.RealmUUID
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.launch
 
 class RoaryRepo {
 
     lateinit var realm: Realm
+
+    private val appServiceInstance by lazy {
+        val configuration =
+            AppConfiguration.Builder("roaryminders-hlpws").log(LogLevel.ALL).build()
+        App.create(configuration)
+    }
 
     private suspend fun setupRealmSync() {
         val user = appServiceInstance.login(Credentials.anonymous())
@@ -39,17 +40,17 @@ class RoaryRepo {
         realm = Realm.open(flexibleSyncConfig)
     }
 
-    private val appServiceInstance by lazy {
-        val configuration =
-            AppConfiguration.Builder("roaryminders-hlpws").log(LogLevel.ALL).build()
-        App.create(configuration)
-    }
-
     suspend fun startSync() {
         if (!this::realm.isInitialized) {
             setupRealmSync()
         }
-        //realm.write { deleteAll() }
+    }
+
+    suspend fun clearDatabase() {
+        if (!this::realm.isInitialized) {
+            setupRealmSync()
+        }
+        realm.write { deleteAll() }
     }
 
     suspend fun getAllData(): Flow<List<RoaryRepoInfo>> {
@@ -59,18 +60,50 @@ class RoaryRepo {
         return realm.query<RoaryRepoInfo>().asFlow().map { it.list }
     }
 
-    suspend fun saveInfo(classForRepo: RoaryRepoInfo) {
+    suspend fun updateClass(id: RealmUUID, classForRepo: RoaryRepoInfo) {
+        realm.write {
+            try {
+                val classToUpdate = realm.query<RoaryRepoInfo>(query = "_id == $0", id)
+                    .first()
+                    .find()
+                if (classToUpdate != null) {
+                    classToUpdate.className = classForRepo.className
+                    classToUpdate.classDescription = classForRepo.classDescription
+                    classToUpdate.classAssignments = classForRepo.classAssignments
+                }
+            } catch (e: Exception) {
+                print("Error updating class: $e")
+            }
+        }
+    }
+
+    suspend fun saveClass(classForRepo: RoaryRepoInfo) {
         if (!this::realm.isInitialized) {
             setupRealmSync()
         }
 
-        val info = RoaryRepoInfo().apply {
+        val classInfo = RoaryRepoInfo().apply {
             className = classForRepo.className
             classDescription = classForRepo.classDescription
             classAssignments = classForRepo.classAssignments
         }
         realm.write {
-            copyToRealm(info)
+            copyToRealm(classInfo)
+        }
+    }
+
+    suspend fun deleteClass(id: RealmUUID) {
+        realm.write {
+            try {
+                val classToDelete = realm.query<RoaryRepoInfo>(query = "_id == $0", id)
+                    .first()
+                    .find()
+                if (classToDelete != null) {
+                    delete(classToDelete)
+                }
+            } catch (e: Exception) {
+                print("Error deleting class: $e")
+            }
         }
     }
 }
