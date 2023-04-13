@@ -10,7 +10,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AddCircle
+import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,6 +24,7 @@ import androidx.navigation.NavController
 import com.example.roaryminder.RoaryViewModel
 import com.example.roaryminder.android.R
 import com.example.roaryminder.android.navigation.Screens
+import com.example.roaryminder.repo.RoaryRepoInfo
 
 @Composable
 fun ClassCardList(
@@ -85,7 +89,7 @@ fun ClassCardComponent(
 
                 if (true)
                     Icon(
-                        imageVector = Icons.Default.AddCircle,
+                        imageVector = Icons.Default.ArrowForward,
                         contentDescription = "add",
                         tint = Color.Blue,
                         modifier = Modifier
@@ -101,6 +105,7 @@ fun ClassCardComponent(
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen (navController: NavController, viewModel: RoaryViewModel){
+    val roaryRepoInfoList: List<RoaryRepoInfo> by viewModel.roaryRepoInfoList.collectAsState(emptyList())
 
     Scaffold(
         topBar = {
@@ -112,8 +117,6 @@ fun HomeScreen (navController: NavController, viewModel: RoaryViewModel){
             }
         }
     ){
-        ClassCardList(navController = navController, viewModel.roaryMinderQueries.value)
-
+        ClassCardList(navController = navController, roaryRepoInfoList)
     }
-    
 }

@@ -4,7 +4,7 @@ import com.example.roaryminder.repo.*
 import com.rickclephas.kmm.viewmodel.KMMViewModel
 import com.rickclephas.kmm.viewmodel.coroutineScope
 import io.realm.kotlin.ext.realmListOf
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 
@@ -12,7 +12,8 @@ class RoaryViewModel: KMMViewModel() {
 
     val projectTitle = "Roaryminder"
     private val repo = RoaryRepo()
-    var roaryMinderQueries: MutableStateFlow<List<RoaryRepoInfo>> = MutableStateFlow(listOf(RoaryRepoInfo()))
+    private val _roaryRepoInfoList: MutableStateFlow<List<RoaryRepoInfo>> = MutableStateFlow(emptyList())
+    val roaryRepoInfoList: Flow<List<RoaryRepoInfo>> get() = _roaryRepoInfoList
 
     init {
         viewModelScope.coroutineScope.launch {
@@ -53,9 +54,7 @@ class RoaryViewModel: KMMViewModel() {
                 )
             }
             saveQuery(testClass2)
-            roaryMinderQueries = MutableStateFlow(loadClasses())
-            print("THE QUERIES ARE: $roaryMinderQueries")
-
+            loadClasses()
         }
     }
 
@@ -65,11 +64,11 @@ class RoaryViewModel: KMMViewModel() {
         }
     }
 
-    fun loadClasses(): List<RoaryRepoInfo> {
-        var roaryRepoList = mutableListOf<RoaryRepoInfo>()
+    fun loadClasses() {
         viewModelScope.coroutineScope.launch {
-            roaryRepoList = repo.getAllData().toList().last() as MutableList<RoaryRepoInfo>
+            repo.getAllData().collect{
+                _roaryRepoInfoList.value = it
+            }
         }
-        return roaryRepoList
     }
 }
