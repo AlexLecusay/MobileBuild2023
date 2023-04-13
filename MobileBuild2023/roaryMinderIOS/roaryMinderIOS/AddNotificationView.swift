@@ -10,7 +10,7 @@ import SwiftUI
 import shared
 
 struct AddNotificationView: View {
-    @Binding var assignments: [shared.Assignment]
+    @Binding var assignments: [Assignments]
     @State private var assignmentName = ""
     @State private var dueDate = Date()
     @State private var assignmentDescription = ""

@@ -10,14 +10,14 @@
 import SwiftUI
 import shared
     struct NotificationView: View {
-        var assignment: shared.Assignment
+        var assignment: Assignments
         @State var isBellFilled = false
         var bellAction: () -> Void
         
         var body: some View {
             ZStack {
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(assignment.assName)
+                    Text(assignment.assignmentName)
                         .font(.subheadline)
                         .bold()
                         .foregroundColor(.primary)
@@ -26,7 +26,7 @@ import shared
                         .font(.subheadline)
                         .foregroundColor(.secondary)
                     
-                    Text(assignment.assDescription)
+                    Text(assignment.assignmentDescription)
                         .font(.subheadline)
                         .foregroundColor(.primary)
                     
@@ -64,7 +64,7 @@ import shared
 
         struct NotificationView_Previews: PreviewProvider {
             static var previews: some View {
-                let testAssigment = shared.Assignment(assName: "Name", assDescription: "Curr Desccription", assChat: shared.ChatRepo(messages: ["hello1"]))
+                let testAssigment = Assignments()
                 
                 NotificationView(assignment: testAssigment, bellAction: {})
             }

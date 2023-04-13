@@ -11,7 +11,7 @@ import shared
 struct ChatView: View {
     @State private var messageText = ""
     @State var messages: [String] = []
-    var assignment: shared.Assignment
+    var assignment: Assignments
 
     
     
@@ -28,7 +28,7 @@ struct ChatView: View {
 //                        .padding(.horizontal, 0)
 //                })
                 
-                Text(assignment.assName)
+                Text(assignment.assignmentName)
                     .font(.subheadline)
                     .padding(.horizontal, 50)
 
@@ -74,7 +74,7 @@ struct ChatView: View {
             .rotationEffect(.degrees(180))
             .background(Color.gray.opacity(0.1))
             Spacer()
-                .navigationBarTitle(assignment.assName, displayMode: .inline)
+                .navigationBarTitle(assignment.assignmentName, displayMode: .inline)
             
             
             // Contains the Message bar
@@ -116,8 +116,8 @@ struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         let messages = ["Hello!", "How are you?"]
         let messagesArray = NSMutableArray(array: messages)
-        let chatRepo = shared.ChatRepo(messages: messagesArray)
-        let assignment = shared.Assignment(assName: "String", assDescription: "String", assChat: chatRepo)
+        let chatRepo = ChatRepos()
+        let assignment = Assignments()
 
 
         ChatView(assignment: assignment)

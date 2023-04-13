@@ -9,7 +9,7 @@
 import SwiftUI
 import shared
 struct ClassDetailsView: View {
-    let classItem: shared.Class
+    let classItem: RoaryRepoInfo
     
     var body: some View {
         VStack {
@@ -28,7 +28,7 @@ struct ClassDetailsView: View {
 
 struct ClassDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        let classItem = shared.Class(className: "History", classDescription: "Description", classAssignments: [])
+        let classItem = RoaryRepoInfo()
         
         NavigationView {
             ClassDetailsView(classItem: classItem)
