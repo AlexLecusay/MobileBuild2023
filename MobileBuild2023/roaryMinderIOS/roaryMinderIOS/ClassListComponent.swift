@@ -35,7 +35,7 @@ struct ClassListComponent: View {
 //            }
             LazyVStack {
                 ForEach(classes, id: \.className) { classItem in
-                    let isHomePage = Bool.random() //random for now...
+                    let isHomePage = true //random for now...
 
                     Group {
                         var assignments = convertToList(classItem.classAssignments)
