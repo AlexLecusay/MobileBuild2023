@@ -6,8 +6,9 @@
 //  Copyright © 2023 orgName. All rights reserved.
 //
 
+import RealmSwift
 import Foundation
-//
-//struct ChatRepo{
-//    let messages: [String]
-//}
+
+func toArray<T>(_ list: NSMutableArray) -> [T] {
+    return list.compactMap { $0 as? T }
+}

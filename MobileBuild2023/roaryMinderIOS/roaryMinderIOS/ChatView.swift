@@ -11,6 +11,7 @@ import shared
 struct ChatView: View {
     @State private var messageText = ""
     @State var messages: [String] = []
+    @State var chatRepo: ChatRepos
     var assignment: Assignments
 
     
@@ -38,7 +39,9 @@ struct ChatView: View {
             ScrollView {
                 
                 
-                ForEach(messages, id: \.self) { message in
+                ForEach(toArray(chatRepo.messages), id: \.self) { (message: String) in
+                    // Your message rendering logic here
+                
                     // If the message contains [USER], that means it's us
                     if message.contains("[USER]") {
                         let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
@@ -119,7 +122,7 @@ struct ChatView_Previews: PreviewProvider {
         let assignment = Assignments()
 
 
-        ChatView(assignment: assignment)
+        ChatView(chatRepo: ChatRepos(), assignment: assignment)
     }
 }
 

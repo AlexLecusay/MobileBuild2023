@@ -28,6 +28,8 @@
 		46E37DDE29A9CD5B00D65C10 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */; };
 		46E37DE029A9CE9900D65C10 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDF29A9CE9900D65C10 /* SearchBarView.swift */; };
 		46E37DE229A9CEC500D65C10 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DE129A9CEC500D65C10 /* SideMenuView.swift */; };
+		46EC188229E9D4BB00E9103C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 46EC188129E9D4BB00E9103C /* Realm */; };
+		46EC188429E9D4BB00E9103C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46EC188329E9D4BB00E9103C /* RealmSwift */; };
 		5719604229C3D1F700B432D6 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5719604129C3D1F700B432D6 /* FirebaseAnalytics */; };
 		5719604429C3D1F700B432D6 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 5719604329C3D1F700B432D6 /* FirebaseAnalyticsOnDeviceConversion */; };
 		5719604629C3D1F700B432D6 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5719604529C3D1F700B432D6 /* FirebaseAnalyticsSwift */; };
@@ -134,9 +136,11 @@
 				5719607029C3D1F700B432D6 /* FirebaseRemoteConfig in Frameworks */,
 				5719604C29C3D1F700B432D6 /* FirebaseAppDistribution-Beta in Frameworks */,
 				5740C38629CA761B006A6FF1 /* KMMViewModelSwiftUI in Frameworks */,
+				46EC188429E9D4BB00E9103C /* RealmSwift in Frameworks */,
 				5719605029C3D1F700B432D6 /* FirebaseAuthCombine-Community in Frameworks */,
 				5719606E29C3D1F700B432D6 /* FirebasePerformance in Frameworks */,
 				5719606629C3D1F700B432D6 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
+				46EC188229E9D4BB00E9103C /* Realm in Frameworks */,
 				5719607429C3D1F700B432D6 /* FirebaseStorage in Frameworks */,
 				46DC0D4C29E8FE0F00520852 /* KMPNativeCoroutinesCore in Frameworks */,
 				5719605829C3D1F700B432D6 /* FirebaseDynamicLinks in Frameworks */,
@@ -273,6 +277,8 @@
 				46DC0D4929E8FE0F00520852 /* KMPNativeCoroutinesCombine */,
 				46DC0D4B29E8FE0F00520852 /* KMPNativeCoroutinesCore */,
 				46DC0D4D29E8FE0F00520852 /* KMPNativeCoroutinesRxSwift */,
+				46EC188129E9D4BB00E9103C /* Realm */,
+				46EC188329E9D4BB00E9103C /* RealmSwift */,
 			);
 			productName = roaryMinderIOS;
 			productReference = 7555FF7B242A565900829871 /* RoaryMinder.app */;
@@ -306,6 +312,7 @@
 				5719604029C3D1F600B432D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5740C38229CA761B006A6FF1 /* XCRemoteSwiftPackageReference "KMM-ViewModel" */,
 				46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */,
+				46EC188029E9D4BB00E9103C /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -588,6 +595,14 @@
 				kind = branch;
 			};
 		};
+		46EC188029E9D4BB00E9103C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5719604029C3D1F600B432D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -626,6 +641,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
 			productName = KMPNativeCoroutinesRxSwift;
+		};
+		46EC188129E9D4BB00E9103C /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46EC188029E9D4BB00E9103C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		46EC188329E9D4BB00E9103C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46EC188029E9D4BB00E9103C /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		5719604129C3D1F700B432D6 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
