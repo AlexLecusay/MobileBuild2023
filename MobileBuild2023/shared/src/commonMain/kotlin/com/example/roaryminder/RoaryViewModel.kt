@@ -3,6 +3,7 @@ package com.example.roaryminder
 import com.example.roaryminder.repo.*
 import com.rickclephas.kmm.viewmodel.KMMViewModel
 import com.rickclephas.kmm.viewmodel.coroutineScope
+import com.rickclephas.kmp.nativecoroutines.NativeCoroutines
 import io.realm.kotlin.ext.realmListOf
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
@@ -13,6 +14,9 @@ class RoaryViewModel: KMMViewModel() {
     val projectTitle = "Roaryminder"
     private val repo = RoaryRepo()
     private val _roaryRepoInfoList: MutableStateFlow<List<RoaryRepoInfo>> = MutableStateFlow(emptyList())
+
+
+    @NativeCoroutines
     val roaryRepoInfoList: Flow<List<RoaryRepoInfo>> get() = _roaryRepoInfoList
 
     init {

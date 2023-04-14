@@ -2,6 +2,8 @@ plugins {
     kotlin("multiplatform")
     id("com.android.library")
     id("io.realm.kotlin")
+    id("com.google.devtools.ksp") version "1.8.0-1.0.8"
+    id("com.rickclephas.kmp.nativecoroutines") version "1.0.0-ALPHA-6"
 }
 dependencies {
     implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
@@ -30,6 +32,9 @@ kotlin {
     }
 
     sourceSets {
+        all{
+            languageSettings.optIn("kotlin.experimental.ExperimentalObjCName")
+        }
         val commonMain by getting {
             dependencies {
                 implementation("com.rickclephas.kmm:kmm-viewmodel-core:1.0.0-ALPHA-3")
