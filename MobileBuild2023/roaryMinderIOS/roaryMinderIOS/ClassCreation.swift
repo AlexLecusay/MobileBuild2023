@@ -45,9 +45,12 @@ struct ClassCreationView: View {
                     .cornerRadius(10)
             }
             .padding()
+            
+            
         }
         .padding()
         .navigationBarTitle("Class Creation")
     }
+    
     
 }

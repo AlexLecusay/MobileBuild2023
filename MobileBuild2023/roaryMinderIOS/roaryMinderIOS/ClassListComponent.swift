@@ -46,7 +46,9 @@ struct ClassListComponent: View {
                                     classTitle: classItem.className,
                                     classDescription: classItem.classDescription,
                                     classImage: Image("sample"),
-                                    isHomePage: isHomePage
+                                    isHomePage: isHomePage,
+                                    viewModel: viewModel,
+                                    course: classItem
                                 )
                                 .padding(.vertical, 10)
                             }
@@ -57,7 +59,9 @@ struct ClassListComponent: View {
                                     classTitle: classItem.className,
                                     classDescription: classItem.classDescription,
                                     classImage: Image("sample"),
-                                    isHomePage: isHomePage
+                                    isHomePage: isHomePage,
+                                    viewModel: viewModel,
+                                    course: classItem
                                 )
                                 .padding(.vertical, 10)
                             }
