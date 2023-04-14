@@ -88,14 +88,19 @@ class RoaryRepo {
             classAssignments = classForRepo.classAssignments
         }
         realm.write {
-            copyToRealm(classInfo)
+            val doesClassExist: RoaryRepoInfo? = this.query<RoaryRepoInfo>("className = $0", classForRepo.className)
+                    ?.find()
+                    ?.firstOrNull()
+            doesClassExist?.let {
+                print("Class already exists")
+            } ?: copyToRealm(classInfo)
         }
     }
 
     suspend fun deleteClass(id: RealmUUID) {
         realm.write {
             try {
-                val classToDelete = realm.query<RoaryRepoInfo>(query = "_id", id)
+                val classToDelete: RoaryRepoInfo = this.query<RoaryRepoInfo>("_id = $0", id)
                     .find()
                     .first()
                 delete(classToDelete)
