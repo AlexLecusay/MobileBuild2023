@@ -62,16 +62,12 @@ fun ChatScreen(
             ) {
                 val message = remember { mutableStateOf("") }
                 TextField(
-                    modifier = Modifier
-                        .weight(1f)
-                        .padding(8.dp),
                     value = message.value,
                     onValueChange = {message.value = it},
                     label = { Text("Send Message",
                     color = Color.Black) }
                 )
                 TextButton(
-                    colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary),
                     onClick = {
                         if (assignmentIndex != null) {
                             viewModel.saveMessage(
