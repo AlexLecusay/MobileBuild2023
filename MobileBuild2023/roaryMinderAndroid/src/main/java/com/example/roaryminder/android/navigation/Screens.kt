@@ -9,6 +9,7 @@ enum class Screens {
             =when (route?.substringBefore("/")) {
                 HomeScreen.name -> HomeScreen
                 TopicScreen.name -> TopicScreen
+                ChatScreen.name -> ChatScreen
             null -> HomeScreen
             else -> throw IllegalArgumentException("Route $route is not recognised")
 

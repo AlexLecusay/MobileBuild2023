@@ -109,4 +109,27 @@ class RoaryRepo {
             }
         }
     }
+
+    suspend fun saveAssignment(assignment: Assignments, classForRepo: RoaryRepoInfo){
+        realm.write {
+            val findClass: RoaryRepoInfo? = this.query<RoaryRepoInfo>("className = $0", classForRepo.className)
+                ?.find()
+                ?.firstOrNull()
+            if (findClass != null){
+                findClass.classAssignments?.apply { add(assignment) }
+            }
+        }
+    }
+
+    suspend fun deleteAssignment(assignment: Assignments, classForRepo: RoaryRepoInfo){
+        realm.write {
+            val findClass: RoaryRepoInfo? = this.query<RoaryRepoInfo>("className = $0", classForRepo.className)
+                ?.find()
+                ?.firstOrNull()
+            classForRepo.classAssignments?.remove(assignment)
+            if (findClass != null){
+                findClass.classAssignments?.apply { remove(assignment) }
+            }
+        }
+    }
 }

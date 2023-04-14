@@ -11,6 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.roaryminder.RoaryViewModel
+import com.example.roaryminder.android.ui.ChatScreen.ChatScreen
 import com.example.roaryminder.android.ui.HomeScreen.HomeScreen
 import com.example.roaryminder.android.ui.TopicScreen.TopicScreen
 import com.example.roaryminder.repo.RoaryRepoInfo
@@ -31,15 +32,23 @@ fun RoaryNavigation(viewModel: RoaryViewModel) {
         }
         composable(Screens.TopicScreen.name+"/{class}",
             arguments = listOf(navArgument(name = "class") {type = NavType.StringType})
-        ){
-            backStackEntry ->
+        ){ backStackEntry ->
             TopicScreen(
+                viewModel = viewModel,
                 navController = navController,
                 classes = roaryRepoInfoList,
                 backStackEntry.arguments?.getString("class"))
         }
-        composable(Screens.ChatScreen.name){
-
+        composable(Screens.ChatScreen.name+"/{classIndex}"+"/{assignmentIndex}",
+            arguments = listOf(
+                navArgument(name = "classIndex") {type = NavType.StringType},
+                navArgument(name = "assignmentIndex") {type = NavType.StringType})
+        ){ backStackEntry ->
+            ChatScreen(
+                viewModel = viewModel,
+                classes = roaryRepoInfoList,
+                backStackEntry.arguments?.getString("classIndex"),
+                backStackEntry.arguments?.getString("assignmentIndex"))
         }
     }
 }

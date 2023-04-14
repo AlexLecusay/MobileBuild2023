@@ -86,7 +86,11 @@ fun HomeScreen(
                                         assignmentDescription = assDescription
                                         chatRepo =
                                             ChatRepos().apply {
-                                                messages = realmListOf("")
+                                                messages = realmListOf(
+                                                    "Chat is being worked on",
+                                                    "Chat is being worked on",
+                                                    "Chat is being worked on",
+                                                    "Chat is being worked on")
                                             }
                                     }
                                 )
@@ -121,8 +125,8 @@ fun ClassCardList(
                 viewModel = viewModel,
                 currentClass = currClass,
                 //classes = classes,
-                index = count++){ name ->
-                navController.navigate(Screens.TopicScreen.name+"/$name")
+                index = count++){ index ->
+                navController.navigate(Screens.TopicScreen.name+"/$index")
             }
         }
     }

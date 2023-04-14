@@ -37,7 +37,19 @@ class RoaryViewModel: KMMViewModel() {
         }
     }
 
-    fun loadClasses() {
+    fun saveAssignment(assignment: Assignments, classForRepo: RoaryRepoInfo) {
+        viewModelScope.coroutineScope.launch {
+            repo.saveAssignment(assignment, classForRepo)
+        }
+    }
+
+    fun deleteAssignment(assignment: Assignments, classForRepo: RoaryRepoInfo) {
+        viewModelScope.coroutineScope.launch {
+            repo.deleteAssignment(assignment, classForRepo)
+        }
+    }
+
+    private fun loadClasses() {
         viewModelScope.coroutineScope.launch {
             repo.getAllData().collect{
                 _roaryRepoInfoList.value = it
