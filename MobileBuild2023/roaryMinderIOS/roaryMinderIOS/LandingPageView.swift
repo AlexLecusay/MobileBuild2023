@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import shared
 struct ViewOffsetKey: PreferenceKey {
         static var defaultValue: CGFloat = 0
         static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
@@ -17,7 +18,8 @@ struct LandingPageView: View {
     @State private var searchText = ""
     @State private var isHomePage = false
     @State private var showSideBar = false
-    
+    @ObservedObject var viewModel: iOSRoaryViewModel
+
     var body: some View {
         NavigationView{
             ZStack {
@@ -45,7 +47,7 @@ struct LandingPageView: View {
                             .padding(.horizontal)
                             .padding(.bottom, 8)
                         
-                        ClassListComponent(classes: Test().test.filter { classItem in
+                        ClassListComponent(classes: viewModel.classes.filter { classItem in
                             searchText.isEmpty || classItem.className.localizedCaseInsensitiveContains(searchText)
                         }, isHomePage: isHomePage)
 
@@ -107,6 +109,6 @@ struct LandingPageView: View {
 
 struct LandingPageView_Previews: PreviewProvider {
     static var previews: some View {
-        LandingPageView()
+        LandingPageView(viewModel: iOSRoaryViewModel(repository: RoaryViewModel()))
     }
 }

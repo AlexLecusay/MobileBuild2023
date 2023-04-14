@@ -18,6 +18,11 @@
 		46C429DC29C130AC00725C54 /* RoaryMinderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C429DB29C130AC00725C54 /* RoaryMinderResponse.swift */; };
 		46C429DE29C130B600725C54 /* iOSAppChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46C429DD29C130B600725C54 /* iOSAppChat.swift */; };
 		46D5B6BB29CA694700575B73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 46D5B6BA29CA694600575B73 /* GoogleService-Info.plist */; };
+		46DC0D4829E8FE0F00520852 /* KMPNativeCoroutinesAsync in Frameworks */ = {isa = PBXBuildFile; productRef = 46DC0D4729E8FE0F00520852 /* KMPNativeCoroutinesAsync */; };
+		46DC0D4A29E8FE0F00520852 /* KMPNativeCoroutinesCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 46DC0D4929E8FE0F00520852 /* KMPNativeCoroutinesCombine */; };
+		46DC0D4C29E8FE0F00520852 /* KMPNativeCoroutinesCore in Frameworks */ = {isa = PBXBuildFile; productRef = 46DC0D4B29E8FE0F00520852 /* KMPNativeCoroutinesCore */; };
+		46DC0D4E29E8FE0F00520852 /* KMPNativeCoroutinesRxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 46DC0D4D29E8FE0F00520852 /* KMPNativeCoroutinesRxSwift */; };
+		46DC0D5329E9097C00520852 /* iOSRoaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46DC0D5229E9097C00520852 /* iOSRoaryViewModel.swift */; };
 		46E37DDA29A9C1E400D65C10 /* ClassListComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DD929A9C1E400D65C10 /* ClassListComponent.swift */; };
 		46E37DDC29A9C83500D65C10 /* Class.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDB29A9C83500D65C10 /* Class.swift */; };
 		46E37DDE29A9CD5B00D65C10 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */; };
@@ -85,6 +90,7 @@
 		46C429DB29C130AC00725C54 /* RoaryMinderResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoaryMinderResponse.swift; sourceTree = "<group>"; };
 		46C429DD29C130B600725C54 /* iOSAppChat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = iOSAppChat.swift; sourceTree = "<group>"; };
 		46D5B6BA29CA694600575B73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "roaryMinderIOS/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		46DC0D5229E9097C00520852 /* iOSRoaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSRoaryViewModel.swift; sourceTree = "<group>"; };
 		46E37DD929A9C1E400D65C10 /* ClassListComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassListComponent.swift; sourceTree = "<group>"; };
 		46E37DDB29A9C83500D65C10 /* Class.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Class.swift; sourceTree = "<group>"; };
 		46E37DDD29A9CD5B00D65C10 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
@@ -113,6 +119,8 @@
 				5719604429C3D1F700B432D6 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				5719606A29C3D1F700B432D6 /* FirebaseMLModelDownloader in Frameworks */,
 				5719605E29C3D1F700B432D6 /* FirebaseFirestoreSwift in Frameworks */,
+				46DC0D4829E8FE0F00520852 /* KMPNativeCoroutinesAsync in Frameworks */,
+				46DC0D4E29E8FE0F00520852 /* KMPNativeCoroutinesRxSwift in Frameworks */,
 				5719604A29C3D1F700B432D6 /* FirebaseAppCheck in Frameworks */,
 				5719604829C3D1F700B432D6 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				5719604E29C3D1F700B432D6 /* FirebaseAuth in Frameworks */,
@@ -130,10 +138,12 @@
 				5719606E29C3D1F700B432D6 /* FirebasePerformance in Frameworks */,
 				5719606629C3D1F700B432D6 /* FirebaseInAppMessagingSwift-Beta in Frameworks */,
 				5719607429C3D1F700B432D6 /* FirebaseStorage in Frameworks */,
+				46DC0D4C29E8FE0F00520852 /* KMPNativeCoroutinesCore in Frameworks */,
 				5719605829C3D1F700B432D6 /* FirebaseDynamicLinks in Frameworks */,
 				5719605C29C3D1F700B432D6 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				5719606C29C3D1F700B432D6 /* FirebaseMessaging in Frameworks */,
 				5719606829C3D1F700B432D6 /* FirebaseInstallations in Frameworks */,
+				46DC0D4A29E8FE0F00520852 /* KMPNativeCoroutinesCombine in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,6 +156,15 @@
 				058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		46DC0D4F29E9090900520852 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				46E37DDB29A9C83500D65C10 /* Class.swift */,
+				46DC0D5229E9097C00520852 /* iOSRoaryViewModel.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -186,7 +205,7 @@
 				46E37DE129A9CEC500D65C10 /* SideMenuView.swift */,
 				46E37DDF29A9CE9900D65C10 /* SearchBarView.swift */,
 				46BF0A8C29E1033A0074CDE5 /* Assignment.swift */,
-				46E37DDB29A9C83500D65C10 /* Class.swift */,
+				46DC0D4F29E9090900520852 /* New Group */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
@@ -250,6 +269,10 @@
 				5719607529C3D1F700B432D6 /* FirebaseStorageCombine-Community */,
 				5740C38329CA761B006A6FF1 /* KMMViewModelCore */,
 				5740C38529CA761B006A6FF1 /* KMMViewModelSwiftUI */,
+				46DC0D4729E8FE0F00520852 /* KMPNativeCoroutinesAsync */,
+				46DC0D4929E8FE0F00520852 /* KMPNativeCoroutinesCombine */,
+				46DC0D4B29E8FE0F00520852 /* KMPNativeCoroutinesCore */,
+				46DC0D4D29E8FE0F00520852 /* KMPNativeCoroutinesRxSwift */,
 			);
 			productName = roaryMinderIOS;
 			productReference = 7555FF7B242A565900829871 /* RoaryMinder.app */;
@@ -282,6 +305,7 @@
 			packageReferences = (
 				5719604029C3D1F600B432D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5740C38229CA761B006A6FF1 /* XCRemoteSwiftPackageReference "KMM-ViewModel" */,
+				46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */,
 			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
@@ -340,6 +364,7 @@
 				46E37DE229A9CEC500D65C10 /* SideMenuView.swift in Sources */,
 				46C429DA29C1309F00725C54 /* ChatView.swift in Sources */,
 				2152FB042600AC8F00CF470E /* iOSApp.swift in Sources */,
+				46DC0D5329E9097C00520852 /* iOSRoaryViewModel.swift in Sources */,
 				864AA11529CE255600292C7B /* ClassCreation.swift in Sources */,
 				46E37DE029A9CE9900D65C10 /* SearchBarView.swift in Sources */,
 				460F599F29A5C37300E11E59 /* ClassComponent.swift in Sources */,
@@ -555,6 +580,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rickclephas/KMP-NativeCoroutines.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		5719604029C3D1F600B432D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -574,6 +607,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		46DC0D4729E8FE0F00520852 /* KMPNativeCoroutinesAsync */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesAsync;
+		};
+		46DC0D4929E8FE0F00520852 /* KMPNativeCoroutinesCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesCombine;
+		};
+		46DC0D4B29E8FE0F00520852 /* KMPNativeCoroutinesCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesCore;
+		};
+		46DC0D4D29E8FE0F00520852 /* KMPNativeCoroutinesRxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 46DC0D4629E8FE0E00520852 /* XCRemoteSwiftPackageReference "KMP-NativeCoroutines" */;
+			productName = KMPNativeCoroutinesRxSwift;
+		};
 		5719604129C3D1F700B432D6 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5719604029C3D1F600B432D6 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

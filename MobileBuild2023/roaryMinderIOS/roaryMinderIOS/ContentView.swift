@@ -3,9 +3,10 @@ import shared
 
 struct ContentView: View {
 //	let greet = Greeting().greet()
+    @StateObject private var viewModel = iOSRoaryViewModel(repository: RoaryViewModel())
 
 	var body: some View {
-        LandingPageView()
+        LandingPageView(viewModel:viewModel)
 	}
 }
 
