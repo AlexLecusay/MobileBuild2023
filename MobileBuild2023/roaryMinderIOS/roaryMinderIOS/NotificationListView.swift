@@ -17,7 +17,11 @@ struct NotificationListView: View {
             VStack(spacing: 20) {
                 ForEach(assignments) { assignment in
                     NavigationLink(destination: ChatView(chatRepo:assignment.chatRepo ?? ChatRepos(),assignment: assignment)) {
-                        NotificationView(assignment: assignment) {
+                        NotificationView(
+                            viewModel: viewModel,
+                            course: course,
+                            assignment: assignment
+                        ) {
                             // Bell button action here
                             print("Bell button tapped")
                         }
