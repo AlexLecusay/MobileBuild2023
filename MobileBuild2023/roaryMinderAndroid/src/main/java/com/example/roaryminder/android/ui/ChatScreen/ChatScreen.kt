@@ -5,12 +5,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
-import androidx.compose.material.TextField
-import androidx.compose.material.TopAppBar
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -36,7 +31,8 @@ fun ChatScreen(
                 backgroundColor = MaterialTheme.colors.primary,
                 elevation = 5.dp
             ) {
-                Text(text = "Home")
+                classes[classIndex!!.toInt()].classAssignments?.get(assignmentIndex!!.toInt())
+                    ?.let { Text(text = it.assignmentName) }
             }
         }
     ) {
@@ -66,11 +62,16 @@ fun ChatScreen(
             ) {
                 val message = remember { mutableStateOf("") }
                 TextField(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(8.dp),
                     value = message.value,
                     onValueChange = {message.value = it},
-                    label = { Text("Send Message") }
+                    label = { Text("Send Message",
+                    color = Color.Black) }
                 )
                 TextButton(
+                    colors = ButtonDefaults.buttonColors(backgroundColor = MaterialTheme.colors.primary),
                     onClick = {
                         if (assignmentIndex != null) {
                             viewModel.saveMessage(
