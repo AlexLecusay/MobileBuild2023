@@ -75,12 +75,7 @@ fun TopicScreen(
                                         assignmentName = assignment
                                         assignmentDescription = assDescription
                                         chatRepo = ChatRepos().apply {
-                                                messages = realmListOf(
-                                                    "Chat is being worked on",
-                                                    "Chat is being worked on",
-                                                    "Chat is being worked on",
-                                                    "Chat is being worked on"
-                                                )
+                                                messages = realmListOf()
                                             }
                                     },
                                     classes[classIndex.toInt()])
@@ -234,9 +229,13 @@ fun AddAssignmentDialog(
                         Text(text = "Cancel")
                     }
                     TextButton(onClick = {
+                        val _assignment = assignment.value
+                        val _assignmentDescription = assignmentDescription.value
+                        assignment.value = ""
+                        assignmentDescription.value = ""
                         onAddClicked(
-                            assignment.value,
-                            assignmentDescription.value)
+                            _assignment,
+                            _assignmentDescription)
                     }) {
                         Text(text = "Add")
                     }

@@ -86,11 +86,7 @@ fun HomeScreen(
                                         assignmentDescription = assDescription
                                         chatRepo =
                                             ChatRepos().apply {
-                                                messages = realmListOf(
-                                                    "Chat is being worked on",
-                                                    "Chat is being worked on",
-                                                    "Chat is being worked on",
-                                                    "Chat is being worked on")
+                                                messages = realmListOf()
                                             }
                                     }
                                 )
@@ -204,10 +200,10 @@ fun AddClassDialog(
     onDismiss: () -> Unit,
     onAddClicked: (String, String, String, String) -> Unit
 ) {
-    val name = remember { mutableStateOf("") }
-    val description = remember { mutableStateOf("") }
-    val assignment = remember { mutableStateOf("") }
-    val assignmentDescription = remember { mutableStateOf("") }
+    val _name = remember { mutableStateOf("") }
+    val _description = remember { mutableStateOf("") }
+    val _assignment = remember { mutableStateOf("") }
+    val _assignmentDescription = remember { mutableStateOf("") }
 
     if (showDialog) {
         AlertDialog(
@@ -218,23 +214,23 @@ fun AddClassDialog(
             text = {
                 Column {
                     TextField(
-                        value = name.value,
-                        onValueChange = {name.value = it},
+                        value = _name.value,
+                        onValueChange = {_name.value = it},
                         label = { Text("Class Name") }
                     )
                     TextField(
-                        value = description.value,
-                        onValueChange = {description.value = it},
+                        value = _description.value,
+                        onValueChange = {_description.value = it},
                         label = { Text("Class Description") }
                     )
                     TextField(
-                        value = assignment.value,
-                        onValueChange = {assignment.value = it},
+                        value = _assignment.value,
+                        onValueChange = {_assignment.value = it},
                         label = { Text("At least one Assignment") }
                     )
                     TextField(
-                        value = assignmentDescription.value,
-                        onValueChange = {assignmentDescription.value = it},
+                        value = _assignmentDescription.value,
+                        onValueChange = {_assignmentDescription.value = it},
                         label = { Text("Description") }
                     )
                 }
@@ -248,11 +244,19 @@ fun AddClassDialog(
                         Text(text = "Cancel")
                     }
                     TextButton(onClick = {
+                        val name = _name.value
+                        val description = _description.value
+                        val assignment = _assignment.value
+                        val assignmentDescription = _assignmentDescription.value
+                        _name.value = ""
+                        _description.value = ""
+                        _assignment.value = ""
+                        _assignmentDescription.value = ""
                         onAddClicked(
-                            name.value,
-                            description.value,
-                            assignment.value,
-                            assignmentDescription.value)
+                            name,
+                            description,
+                            assignment,
+                            assignmentDescription)
                     }) {
                         Text(text = "Add")
                     }

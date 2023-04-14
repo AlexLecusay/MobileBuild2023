@@ -56,6 +56,7 @@ fun ChatScreen(
                         message.value,
                         classes[classIndex.toInt()].classAssignments?.get(assignmentIndex.toInt()) as Assignments
                     )
+
                 }
             }) {
                 Text(text = "Add")
