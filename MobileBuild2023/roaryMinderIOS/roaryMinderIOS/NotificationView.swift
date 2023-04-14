@@ -11,7 +11,11 @@ import SwiftUI
 import shared
 
 struct NotificationView: View {
+    @ObservedObject var viewModel: iOSRoaryViewModel
+    @State var course: RoaryRepoInfo
+    
     var assignment: Assignments
+    
     @State var isBellFilled = false
     var bellAction: () -> Void
     
@@ -47,7 +51,9 @@ struct NotificationView: View {
                         .padding(.top)
                 }
                 
-                Button(action: {}) {
+                Button(action: {
+                    viewModel.getRepo().deleteAssignment(assignment: assignment, classForRepo: course)
+                }) {
                     Image(systemName: "trash")
                         .foregroundColor(.red)
                         .padding(.trailing)
@@ -67,11 +73,4 @@ struct NotificationView: View {
     }
 }
 
-struct NotificationView_Previews: PreviewProvider {
-    static var previews: some View {
-        let testAssigment = Assignments()
-        
-        NotificationView(assignment: testAssigment, bellAction: {})
-    }
-}
 
