@@ -3,7 +3,6 @@ package com.example.roaryminder
 import com.example.roaryminder.repo.*
 import com.rickclephas.kmm.viewmodel.KMMViewModel
 import com.rickclephas.kmm.viewmodel.coroutineScope
-import io.realm.kotlin.ext.realmListOf
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow

@@ -95,12 +95,10 @@ class RoaryRepo {
     suspend fun deleteClass(id: RealmUUID) {
         realm.write {
             try {
-                val classToDelete = realm.query<RoaryRepoInfo>(query = "_id == $0", id)
-                    .first()
+                val classToDelete = realm.query<RoaryRepoInfo>(query = "_id", id)
                     .find()
-                if (classToDelete != null) {
-                    delete(classToDelete)
-                }
+                    .first()
+                delete(classToDelete)
             } catch (e: Exception) {
                 print("Error deleting class: $e")
             }

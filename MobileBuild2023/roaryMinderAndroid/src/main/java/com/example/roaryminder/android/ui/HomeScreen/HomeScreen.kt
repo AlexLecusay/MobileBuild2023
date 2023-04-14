@@ -9,7 +9,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -18,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.example.roaryminder.RoaryViewModel
 import com.example.roaryminder.android.R
 import com.example.roaryminder.android.navigation.Screens
 import com.example.roaryminder.repo.RoaryRepoInfo
@@ -25,6 +26,7 @@ import com.example.roaryminder.repo.RoaryRepoInfo
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 fun HomeScreen(
+    viewModel: RoaryViewModel,
     navController: NavController,
     classes: List<RoaryRepoInfo>
 ){
@@ -38,12 +40,16 @@ fun HomeScreen(
             }
         }
     ){
-        ClassCardList(navController = navController, classes)
+        ClassCardList(
+            viewModel = viewModel,
+            navController = navController,
+            classes = classes)
     }
 }
 
 @Composable
 fun ClassCardList(
+    viewModel: RoaryViewModel,
     navController: NavController,
     classes: List<RoaryRepoInfo>,
     modifier: Modifier = Modifier
@@ -53,6 +59,7 @@ fun ClassCardList(
         items(classes){
                 currClass ->
             ClassCardComponent(
+                viewModel = viewModel,
                 currentClass = currClass,
                 //classes = classes,
                 index = count++){ name ->
@@ -64,6 +71,7 @@ fun ClassCardList(
 
 @Composable
 fun ClassCardComponent(
+    viewModel: RoaryViewModel,
     currentClass: RoaryRepoInfo,
     index: Int,
     onItemClick: (String) -> Unit
@@ -109,17 +117,17 @@ fun ClassCardComponent(
                         .padding(start = 16.dp, bottom = 8.dp, end = 16.dp)
                         .fillMaxWidth(.85f)
                 )
-
-                if (true)
-                    Icon(
-                        imageVector = Icons.Default.ArrowForward,
-                        contentDescription = "add",
-                        tint = Color.Blue,
-                        modifier = Modifier
-                            .padding(end = 16.dp, bottom = 8.dp)
-                            .fillMaxWidth()
-
-                    )
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = "add",
+                    tint = Color.Blue,
+                    modifier = Modifier
+                        .padding(end = 16.dp, bottom = 8.dp)
+                        .fillMaxWidth()
+                        .clickable {
+                            viewModel.deleteQuery(currentClass)
+                        }
+                )
             }
         }
     }

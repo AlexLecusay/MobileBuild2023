@@ -25,6 +25,7 @@ fun RoaryNavigation(viewModel: RoaryViewModel) {
     NavHost(navController = navController, startDestination = Screens.HomeScreen.name ){
         composable(Screens.HomeScreen.name){
             HomeScreen(
+                viewModel = viewModel,
                 navController = navController,
                 classes = roaryRepoInfoList)
         }
