@@ -16,9 +16,16 @@ extension Assignments: Identifiable {
     
 }
 
-func addAssignment(assignmentName: String, assignmentDescription: String, assignments: Binding<[Assignments]>) {
-        let chatRepo = ChatRepos()
-        chatRepo.messages = []
+func addAssignment(assignmentName: String, assignmentDescription: String,course: RoaryRepoInfo,viewModel:RoaryViewModel) {
+        var newAssignment = Assignments()
+        var chatRepo = ChatRepos()
+    newAssignment.chatRepo = chatRepo
+    newAssignment.assignmentName = assignmentName
+    newAssignment.assignmentDescription = assignmentDescription
+    course.classAssignments.add(newAssignment)
+    viewModel.saveQuery(classForRepo: course)
+    print("test")
+    
 //        let newAssignment = assignments(assName: assignmentName, assDescription: assignmentDescription, assChat: chatRepo)
 //        assignments.wrappedValue.append(newAssignment)
     }

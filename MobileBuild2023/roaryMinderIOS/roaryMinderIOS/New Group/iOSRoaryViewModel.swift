@@ -23,7 +23,9 @@ class iOSRoaryViewModel: ObservableObject {
         startObservingClasses()
          testValuesReceived()
     }
-    
+    func getRepo() -> RoaryViewModel{
+        return self.repository
+    }
     func startObservingClasses() {
         //        observationTask = Task<Void, Error> {
         //            do {

@@ -7,22 +7,35 @@
 //
 
 import SwiftUI
-
+import shared
 struct ClassCreationView: View {
     @State private var courseName = ""
-    @State private var professorName = ""
-    
+    @State private var courseDescription = ""
+    @ObservedObject var viewModel: iOSRoaryViewModel
+    @Environment(\.presentationMode) var presentationMode
+
     var body: some View {
         VStack {
             //Course & Professor Name
             
             TextField("Course Name", text: $courseName)
                 .padding()
-            TextField("Professor Name", text: $professorName)
+            TextField("courseDescription", text: $courseDescription)
                 .padding()
             
             //Add Class Button
             Button(action: {
+                let newClass = RoaryRepoInfo()
+                let assignments = Assignments()
+                let chatRepo = ChatRepos()
+                newClass.className = courseName
+                newClass.classDescription = courseDescription
+                assignments.assignmentName = "Assignment 1"
+                assignments.assignmentDescription = ""
+                assignments.chatRepo = chatRepo
+                newClass.classAssignments.add(assignments)
+                viewModel.getRepo().saveQuery(classForRepo: newClass)
+                self.presentationMode.wrappedValue.dismiss()
             }) {
                 Text("Add Class")
                     .foregroundColor(.white)

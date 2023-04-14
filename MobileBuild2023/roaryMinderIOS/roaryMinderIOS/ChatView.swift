@@ -114,7 +114,7 @@ struct ChatView: View {
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         let messages = ["Hello!", "How are you?"]
-        let messagesArray = NSMutableArray(array: messages)
+        let xmessagesArray = NSMutableArray(array: messages)
         let chatRepo = ChatRepos()
         let assignment = Assignments()
 

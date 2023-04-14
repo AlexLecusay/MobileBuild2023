@@ -49,10 +49,10 @@ struct LandingPageView: View {
                         
                         ClassListComponent(classes: viewModel.classes.filter { classItem in
                             searchText.isEmpty || classItem.className.localizedCaseInsensitiveContains(searchText)
-                        }, isHomePage: isHomePage)
+                        }, isHomePage: isHomePage,viewModel: viewModel)
 
                         //Class Creation View Page
-                        NavigationLink(destination: ClassCreationView()) {
+                        NavigationLink(destination: ClassCreationView(viewModel: viewModel)) {
                                                    HStack {
                                                        Image(systemName: "plus.circle.fill")
                                                            .foregroundColor(.blue)

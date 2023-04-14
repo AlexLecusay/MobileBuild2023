@@ -10,7 +10,8 @@ import SwiftUI
 import shared
 struct NotificationListView: View {
     @State var assignments: [Assignments]
-    
+    @State var course: RoaryRepoInfo
+    @ObservedObject var viewModel: iOSRoaryViewModel
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
@@ -23,7 +24,7 @@ struct NotificationListView: View {
                     }
                 }
                 
-                NavigationLink(destination: AddNotificationView(assignments: $assignments)) {
+                NavigationLink(destination: AddNotificationView(assignments: $assignments,course: course,viewModel: viewModel)) {
                     Text("+ Add New Reminder")
                         .font(.headline)
                         .foregroundColor(.blue)
@@ -47,6 +48,6 @@ struct NotificationListView_Previews: PreviewProvider {
             Assignments()
         ]
 
-        NotificationListView(assignments: assignments)
+        NotificationListView(assignments: assignments,course: RoaryRepoInfo(), viewModel: iOSRoaryViewModel(repository: RoaryViewModel()))
     }
 }

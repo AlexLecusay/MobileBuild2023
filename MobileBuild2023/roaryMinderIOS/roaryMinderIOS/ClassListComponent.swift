@@ -3,6 +3,7 @@ import shared
 struct ClassListComponent: View {
     let classes: [RoaryRepoInfo]
     let isHomePage: Bool
+    @ObservedObject var viewModel: iOSRoaryViewModel
 
     var body: some View {
         ScrollView {
@@ -40,7 +41,7 @@ struct ClassListComponent: View {
                         var assignments = convertToList(classItem.classAssignments)
 
                         if isHomePage {
-                            NavigationLink(destination: NotificationListView(assignments: assignments)) {
+                            NavigationLink(destination: NotificationListView(assignments: assignments,course: classItem,viewModel: viewModel)) {
                                 ClassComponent(
                                     classTitle: classItem.className,
                                     classDescription: classItem.classDescription,
@@ -103,7 +104,7 @@ struct ClassListComponent_Previews: PreviewProvider {
         ]
 
         NavigationView {
-            ClassListComponent(classes: classes, isHomePage: true)
+            ClassListComponent(classes: classes, isHomePage: true,viewModel: iOSRoaryViewModel(repository: RoaryViewModel()))
         }
     }
 }

@@ -15,6 +15,9 @@ struct AddNotificationView: View {
     @State private var dueDate = Date()
     @State private var assignmentDescription = ""
     @State private var showAlert = false
+    @State var course: RoaryRepoInfo
+    @ObservedObject var viewModel: iOSRoaryViewModel
+
     @Environment(\.presentationMode) var presentationMode // <-- Add this line
     
     var body: some View {
@@ -34,7 +37,7 @@ struct AddNotificationView: View {
                 if assignmentName.isEmpty || assignmentDescription.isEmpty {
                     showAlert = true
                 } else {
-                    addAssignment(assignmentName: assignmentName, assignmentDescription: assignmentDescription, assignments: $assignments)
+                    addAssignment(assignmentName: assignmentName, assignmentDescription: assignmentDescription,course: course,viewModel: viewModel.getRepo())
                     presentationMode.wrappedValue.dismiss() // <-- Add this line
                 }
             }) {
