@@ -7,15 +7,15 @@
 //
 
 import SwiftUI
-//import shared
+import shared
 struct ClassComponent: View {
     let classTitle: String
     let classDescription: String
     let classImage: Image
     let isHomePage: Bool
-    //@ObservedObject var viewModel: iOSRoaryViewModel
-    //@State var course: RoaryRepoInfo
-
+    @ObservedObject var viewModel: iOSRoaryViewModel
+    @State var course: RoaryRepoInfo
+    @Environment(\.presentationMode) var presentationMode
     var body: some View {
         VStack {
             ZStack {
@@ -51,7 +51,11 @@ struct ClassComponent: View {
                             
                             Spacer()
                             
-                            Button(action: {}) {
+                            Button(action: {
+                                viewModel.getRepo().deleteQuery(classForRepo: course)
+                                self.presentationMode.wrappedValue.dismiss()
+                                
+                            }) {
                                 Image(systemName: "trash.circle.fill")
                                     .foregroundColor(.red)
                                     .font(.title2)
@@ -75,10 +79,4 @@ struct ClassComponent: View {
 
 
 
-struct ClassComponent_Previews: PreviewProvider {
-    static var previews: some View {
-        ClassComponent(classTitle: "History 101", classDescription: "Learn about ancient civilizations and their impact on modern society.", classImage: Image("sample"),isHomePage: true)
 
-            
-    }
-}
