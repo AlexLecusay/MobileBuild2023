@@ -12,8 +12,8 @@ class RoaryRepoInfo: RealmObject {
     var _id: RealmUUID = RealmUUID.random()
     var className: String = ""
     var classDescription: String = ""
-    //var classAssignments: RealmList<Assignments>? = null
-    var classAssignments: RealmList<Assignments> = realmListOf()
+    var classAssignments: RealmList<Assignments>? = null
+    //var classAssignments: RealmList<Assignments> = realmListOf()
 }
 
 class Assignments: EmbeddedRealmObject {
