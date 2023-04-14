@@ -7,13 +7,15 @@
 //
 
 import SwiftUI
-
+//import shared
 struct ClassComponent: View {
     let classTitle: String
     let classDescription: String
     let classImage: Image
     let isHomePage: Bool
-    
+    //@ObservedObject var viewModel: iOSRoaryViewModel
+    //@State var course: RoaryRepoInfo
+
     var body: some View {
         VStack {
             ZStack {
@@ -36,25 +38,26 @@ struct ClassComponent: View {
                                 .fontWeight(.semibold)
                                 .foregroundColor(.primary)
                             
+                            Spacer()
                         }
                         
                         Divider()
                             .background(Color.gray.opacity(0.3))
+                        
                         HStack{
                             Text(classDescription)
                                 .font(.body)
                                 .foregroundColor(.gray)
-                            if !isHomePage {
-                                Spacer()
+                            
+                            Spacer()
+                            
+                            Button(action: {}) {
+                                Image(systemName: "trash.circle.fill")
+                                    .foregroundColor(.red)
+                                    .font(.title2)
                                 
-                                Button(action: {}) {
-                                    Image(systemName: "plus.circle.fill")
-                                        .foregroundColor(.blue)
-                                        .font(.title2)
-                                }
                             }
                         }
-
                     }
                     .padding([.leading, .trailing])
                     .padding(.bottom, 8)
