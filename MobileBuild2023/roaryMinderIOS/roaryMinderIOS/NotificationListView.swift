@@ -16,7 +16,7 @@ struct NotificationListView: View {
         ScrollView {
             VStack(spacing: 20) {
                 ForEach(assignments) { assignment in
-                    NavigationLink(destination: ChatView(chatRepo:assignment.chatRepo ?? ChatRepos(),assignment: assignment)) {
+                    NavigationLink(destination: ChatView(chatRepo:assignment.chatRepo ?? ChatRepos(),assignment: assignment,viewModel: viewModel)) {
                         NotificationView(assignment: assignment) {
                             // Bell button action here
                             print("Bell button tapped")

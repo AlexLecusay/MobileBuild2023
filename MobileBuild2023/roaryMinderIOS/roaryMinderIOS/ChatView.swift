@@ -13,6 +13,7 @@ struct ChatView: View {
     @State var messages: [String] = []
     @State var chatRepo: ChatRepos
     var assignment: Assignments
+    @ObservedObject var viewModel: iOSRoaryViewModel
 
     
     var body: some View {
@@ -27,10 +28,10 @@ struct ChatView: View {
 //                        .foregroundColor(Color.blue)
 //                        .padding(.horizontal, 0)
 //                })
-                
-                Text(assignment.assignmentName)
-                    .font(.subheadline)
-                    .padding(.horizontal, 50)
+//                
+//                Text(assignment.assignmentName)
+//                    .font(.subheadline)
+//                    .padding(.horizontal, 50)
 
                 
             }
@@ -102,27 +103,28 @@ struct ChatView: View {
     }
     
     func sendMessage(message: String) {
-            messages.append("[USER]" + message)
-            self.messageText = ""
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                withAnimation {
-                    messages.append(getRoaryMinderResponse(message: message))
-                }
-            }
+        viewModel.getRepo().saveMessage(message: message, assignment: assignment)
+//            messages.append("[USER]" + message)
+//            self.messageText = ""
+//
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//                withAnimation {
+//                    messages.append(getRoaryMinderResponse(message: message))
+//                }
+//            }
         }
     }
 
 
-struct ChatView_Previews: PreviewProvider {
-    static var previews: some View {
-        let messages = ["Hello!", "How are you?"]
-        let xmessagesArray = NSMutableArray(array: messages)
-        let chatRepo = ChatRepos()
-        let assignment = Assignments()
-
-
-        ChatView(chatRepo: ChatRepos(), assignment: assignment)
-    }
-}
-
+//struct ChatView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        let messages = ["Hello!", "How are you?"]
+//        let xmessagesArray = NSMutableArray(array: messages)
+//        let chatRepo = ChatRepos()
+//        let assignment = Assignments()
+//
+//
+//        ChatView(chatRepo: ChatRepos(), viewModel:iOSRoaryViewModel(repository: RoaryViewModel()), assignment: assignment,viewModel: Ios)
+//    }
+//}
+//
