@@ -49,6 +49,12 @@ class RoaryViewModel: KMMViewModel() {
         }
     }
 
+    fun saveMessage(message: String, assignment: Assignments) {
+        viewModelScope.coroutineScope.launch {
+            repo.saveMessage(message, assignment)
+        }
+    }
+
     private fun loadClasses() {
         viewModelScope.coroutineScope.launch {
             repo.getAllData().collect{

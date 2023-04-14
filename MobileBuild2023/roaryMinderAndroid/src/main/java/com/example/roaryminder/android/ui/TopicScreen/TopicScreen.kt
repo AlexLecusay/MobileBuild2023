@@ -75,7 +75,12 @@ fun TopicScreen(
                                         assignmentName = assignment
                                         assignmentDescription = assDescription
                                         chatRepo = ChatRepos().apply {
-                                                messages = realmListOf("")
+                                                messages = realmListOf(
+                                                    "Chat is being worked on",
+                                                    "Chat is being worked on",
+                                                    "Chat is being worked on",
+                                                    "Chat is being worked on"
+                                                )
                                             }
                                     },
                                     classes[classIndex.toInt()])

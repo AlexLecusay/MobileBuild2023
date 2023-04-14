@@ -123,12 +123,24 @@ class RoaryRepo {
 
     suspend fun deleteAssignment(assignment: Assignments, classForRepo: RoaryRepoInfo){
         realm.write {
-            val findClass: RoaryRepoInfo? = this.query<RoaryRepoInfo>("className = $0", classForRepo.className)
-                ?.find()
-                ?.firstOrNull()
-            classForRepo.classAssignments?.remove(assignment)
-            if (findClass != null){
-                findClass.classAssignments?.apply { remove(assignment) }
+            val findClass: Assignments? =
+                this.query<Assignments>("assignmentName = $0", assignment.assignmentName)
+                    .find()
+                    .firstOrNull()
+            if (findClass != null) {
+                delete(findClass)
+            }
+        }
+    }
+
+    suspend fun saveMessage(message: String, assignment: Assignments){
+        realm.write {
+            val findClass: Assignments? =
+                this.query<Assignments>("assignmentName = $0", assignment.assignmentName)
+                    .find()
+                    .firstOrNull()
+            if (findClass != null) {
+                findClass.chatRepo?.apply { messages.add(message) }
             }
         }
     }
