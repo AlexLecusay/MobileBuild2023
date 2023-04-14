@@ -8,6 +8,13 @@
 
 import Foundation
 import shared
+import KMMViewModelCore
+import KMPNativeCoroutinesAsync
+import KMPNativeCoroutinesCombine
+import KMPNativeCoroutinesCore
+import KMMViewModelSwiftUI
+import KMPNativeCoroutinesRxSwift
+import KMMViewModelCoreObjC
 //struct Class {
 //    let title: String
 //    let description: String
@@ -54,6 +61,10 @@ func convertToList(_ mutableList: NSMutableArray?) -> [Assignments] {
 
 struct Test {
     var test = getClassesFromDB()
+    let viewModel = RoaryViewModel()
+//    let testidk = Task{
+//        let result = await asyncResult(for: viewModel.getRoaryRepoInfoList())
+//    }
 //    let chatRepo = ChatRepos(messages: NSMutableArray(array: []))
 //
 //    func createTestAssignments() -> [Assignments] {
@@ -67,5 +78,27 @@ struct Test {
 //        createTestAssignments()
 //    }
 
+//    let handle = Task {
+//        do {
+//            let letters = try await asyncFunction(for: RoaryViewModel().getRoaryRepoInfoList())
+//            if let letters = letters as? [RoaryRepoInfo] {
+//                print("yes!")
+//            } else {
+//                print("no :(")
+//            }
+//            print("Got random letters: \(String(describing: letters))")
+//        } catch {
+//            print("Failed with error: \(error)")
+//        }
+//    }
+    
+    
+	
+
+    // To cancel the flow (collection) just cancel the async task
+//    handle.cancel()
+    
     let test3 = getClassesFromDB()
+    
+
 }
