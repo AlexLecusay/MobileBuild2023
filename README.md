@@ -27,7 +27,7 @@ The RoaryMinders project was completed by a team of 6 FIU students following an 
 - [Alex Lecusay](https://www.linkedin.com/in/alexlecusay/) (Project Manager, Fullstack Developer)
 - [Zacharias Lafond](https://www.linkedin.com/in/zacharias-lafond/) (UX/UI Designer, IOS Developer)
 - [Uriel Juarez](https://www.linkedin.com/in/uriel-juarez/) (UX/UI Designer, IOS Developer)
-- Camila Berna (UX/UI Designer, IOS Developer)
+- [Camila Berna](http://www.linkedin.com/in/camilabernalc) (UX/UI Designer, IOS Developer)
 - [Daniel Ruiz](https://www.linkedin.com/in/danielruizfiu/) (UX/UI Designer, Android Developer)
 - [Wissam Hassani](https://www.linkedin.com/in/wissam-hassani/) (UX/UI Designer, Backend Developer)
 
