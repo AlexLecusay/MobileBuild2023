@@ -24,12 +24,12 @@ RoaryMinders was developed using [Kotlin Multiplatform Mobile](https://kotlinlan
 
 ## The team
 The RoaryMinders project was completed by a team of 6 FIU students following an agile methodology over a period of 9 weeks. The team worked collaboratively, breaking down the project into smaller tasks, holding regular meetings, and adapting to changes as necessary. Various tools were employed, such as project management software and code reviews, to ensure organization and quality. The team's adherence to the agile methodology contributed to the successful and efficient delivery of the project.
-- Alex Lecusay (Project Manager, Fullstack Developer)
-- Zacharias Lafond (UX/UI Designer, IOS Developer)
-- Uriel Juarez (UX/UI Designer, IOS Developer)
+- [Alex Lecusay](https://www.linkedin.com/in/alexlecusay/) (Project Manager, Fullstack Developer)
+- [Zacharias Lafond](https://www.linkedin.com/in/zacharias-lafond/) (UX/UI Designer, IOS Developer)
+- [Uriel Juarez](https://www.linkedin.com/in/uriel-juarez/) (UX/UI Designer, IOS Developer)
 - Camila Berna (UX/UI Designer, IOS Developer)
-- Daniel Ruiz (UX/UI Designer, Android Developer)
-- Wissam Hassani (UX/UI Designer, Backend Developer)
+- [Daniel Ruiz](https://www.linkedin.com/in/danielruizfiu/) (UX/UI Designer, Android Developer)
+- [Wissam Hassani](https://www.linkedin.com/in/wissam-hassani/) (UX/UI Designer, Backend Developer)
 
 ## License
 
