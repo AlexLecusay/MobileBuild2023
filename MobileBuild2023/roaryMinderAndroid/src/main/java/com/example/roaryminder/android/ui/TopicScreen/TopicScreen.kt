@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.runtime.Composable
@@ -52,13 +53,13 @@ fun TopicScreen(
                     horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
                     if (classIndex != null) {
-                        Text(text = classes[classIndex.toInt()].className)
+                        Text(text = classes[classIndex.toInt()].className, style = MaterialTheme.typography.h6)
                     }
                     val showDialog = remember { mutableStateOf(false) }
                     Icon(
-                        imageVector = Icons.Default.Add,
+                        imageVector = Icons.Default.AddCircle,
                         contentDescription = "add",
-                        tint = Color.Green,
+                        tint = MaterialTheme.colors.onPrimary,
                         modifier = Modifier
                             .width(24.dp)
                             .clickable {
@@ -216,7 +217,7 @@ fun AddAssignmentDialog(
                     TextField(
                         value = assignmentDescription.value,
                         onValueChange = {assignmentDescription.value = it},
-                        label = { Text("Description") }
+                        label = { Text("Due Date") }
                     )
                 }
             },

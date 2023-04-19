@@ -12,6 +12,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.AddCircle
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -61,12 +62,12 @@ fun HomeScreen(
                             .clip(CircleShape)
                             .border(2.dp, Color.Gray, CircleShape)
                     )
-                    Text(text = viewModel.projectTitle)
+                    Text(text = viewModel.projectTitle, style = MaterialTheme.typography.h6)
                     val showDialog = remember { mutableStateOf(false) }
                     Icon(
-                        imageVector = Icons.Default.Add,
+                        imageVector = Icons.Default.AddCircle,
                         contentDescription = "add",
-                        tint = Color.Green,
+                        tint = MaterialTheme.colors.onPrimary,
                         modifier = Modifier
                             .width(24.dp)
                             .clickable {
@@ -231,7 +232,7 @@ fun AddClassDialog(
                     TextField(
                         value = _assignmentDescription.value,
                         onValueChange = {_assignmentDescription.value = it},
-                        label = { Text("Description") }
+                        label = { Text("Its due date") }
                     )
                 }
             },

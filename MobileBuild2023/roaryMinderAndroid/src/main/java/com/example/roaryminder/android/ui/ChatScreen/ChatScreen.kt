@@ -12,6 +12,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.roaryminder.RoaryViewModel
 import com.example.roaryminder.repo.Assignments
@@ -32,7 +33,7 @@ fun ChatScreen(
                 elevation = 5.dp
             ) {
                 classes[classIndex!!.toInt()].classAssignments?.get(assignmentIndex!!.toInt())
-                    ?.let { Text(text = it.assignmentName) }
+                    ?.let { Text(text = it.assignmentName, style = MaterialTheme.typography.h6, modifier = Modifier.padding(start = 16.dp)) }
             }
         }
     ) {
@@ -77,7 +78,7 @@ fun ChatScreen(
                             message.value = ""
                         }
                     }) {
-                    Text(text = "Send", style = MaterialTheme.typography.h6)
+                    Text(text = "Send", style = MaterialTheme.typography.h6, modifier = Modifier.padding(start = 35.dp))
                 }
             }
         }
