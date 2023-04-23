@@ -13,7 +13,7 @@ RoaryMinders was developed using [Kotlin Multiplatform Mobile](https://kotlinlan
 
 | Android  | IOS |
 | ------------- |:-------------:|
-| <img src='https://media.giphy.com/media/VsGpzK9OBxcf3azGzj/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />      | To be added later     |  
+| <img src='https://media.giphy.com/media/VsGpzK9OBxcf3azGzj/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />      | <img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDYyNDE1MzA3Nzk3OThhNTc5MTMyOGFiYzZhZTc4NjRlNTJiNDdmYiZlcD12MV9pbnRlcm5hbF9naWZzX2dpZklkJmN0PWc/6BNWeifqrQMcgu94lA/giphy.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />     |    
 
 ## Adding Classes, Assignments, and Messages
 
